@@ -1,0 +1,1 @@
+{"t":"evt","m":"card.show","p":{"id":"home-doorbell-00000000000000000000000000000000","kind":"attention","title":"Front Door","body":"Doorbell rang at 19:30","options":[{"id":"dismiss","label":"Dismiss","role":"cancel"}],"reply":false,"priority":"high","expires":1793145720.0}}

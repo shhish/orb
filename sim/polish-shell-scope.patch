@@ -1,0 +1,174 @@
+diff --git a/firmware/components/orb_home/orb_home_view.c b/firmware/components/orb_home/orb_home_view.c
+--- a/firmware/components/orb_home/orb_home_view.c
++++ b/firmware/components/orb_home/orb_home_view.c
+@@ -566,15 +566,15 @@
+     lv_obj_set_pos(on_lbl, 233 - hw / 2 + w_t + 8, 4);
+ 
+     static const struct {
+-        int x, y, w, h, r;
++        int y, w, h, r;
+         uint8_t opa;
+         int disc_size;
+     } s_slots[5] = {
+-        {83, 84, 300, 60, 30, 128, 34},
+-        {53, 154, 360, 72, 36, 255, 42},
+-        {53, 236, 360, 72, 36, 255, 42},
+-        {53, 318, 360, 72, 36, 255, 42},
+-        {113, 400, 240, 50, 25, 128, 0},
++        {84, 300, 60, 30, 128, 34},
++        {154, 360, 72, 36, 255, 42},
++        {236, 360, 72, 36, 255, 42},
++        {318, 360, 72, 36, 255, 42},
++        {400, 240, 50, 25, 128, 0},
+     };
+ 
+     if (v->current.offset >= count) v->current.offset = 0;
+@@ -586,10 +586,16 @@
+         bool is_on = (a->state.present & ORB_HOME_ON) && a->state.on;
+         bool has_bri = (a->state.present & ORB_HOME_BRIGHTNESS);
+ 
++        /* HIG §§3/7: fit the entire capsule to this row's live circle
++         * chord. Inset the chord by its radius, then restore both end caps. */
++        int row_h = s_slots[s].h, cy = s_slots[s].y + row_h / 2;
++        int row_w = row_h + orb_chord_width(cy, cy,
++            ORB_RIM_MARGIN_GLASS + (row_h + 1) / 2);
++        if (s == 0 || s == 4) row_w = LV_MIN(row_w, s_slots[s].w);
+         lv_obj_t *row = lv_button_create(v->current.page);
+         lv_obj_remove_style_all(row);
+-        lv_obj_set_size(row, s_slots[s].w, s_slots[s].h);
+-        lv_obj_set_pos(row, s_slots[s].x, s_slots[s].y);
++        lv_obj_set_size(row, row_w, row_h);
++        lv_obj_set_pos(row, (ORB_SCREEN_D - row_w) / 2, s_slots[s].y);
+         lv_obj_set_style_radius(row, s_slots[s].r, 0);
+         lv_obj_set_style_bg_opa(row, s_slots[s].opa, 0);
+         lv_color_t row_bg = is_on ? lv_color_hex(0x2C2C2E) : lv_color_hex(0x1C1C1E);
+@@ -614,8 +620,8 @@
+             lv_obj_update_layout(row);
+             int tw = lv_obj_get_width(t), vw = lv_obj_get_width(val);
+             int cw = tw + 10 + vw;
+-            lv_obj_set_pos(t, (s_slots[s].w - cw) / 2, (s_slots[s].h - lv_obj_get_height(t)) / 2);
+-            lv_obj_set_pos(val, (s_slots[s].w - cw) / 2 + tw + 10, (s_slots[s].h - lv_obj_get_height(val)) / 2);
++            lv_obj_set_pos(t, (row_w - cw) / 2, (s_slots[s].h - lv_obj_get_height(t)) / 2);
++            lv_obj_set_pos(val, (row_w - cw) / 2 + tw + 10, (s_slots[s].h - lv_obj_get_height(val)) / 2);
+         } else {
+             int ds = s_slots[s].disc_size;
+             lv_obj_t *disc = lv_button_create(row);
+@@ -698,7 +704,7 @@
+             lv_obj_update_layout(val);
+             int val_w = lv_obj_get_width(val);
+             int pad_right = (s == 0 || s == 4) ? 16 : 20;
+-            int val_x = s_slots[s].w - pad_right - val_w;
++            int val_x = row_w - pad_right - val_w;
+             lv_obj_set_pos(val, val_x, (s_slots[s].h - lv_obj_get_height(val)) / 2);
+ 
+             int name_x = ds ? (16 + ds + 12) : 16;
+@@ -760,6 +766,38 @@
+         if (!home_ready(v->model) || v->model->scene_pending) lv_obj_add_state(button, LV_STATE_DISABLED);
+         else lv_obj_remove_state(button, LV_STATE_DISABLED);
+     }
++}
++
++/* Keep cached scroll frames cheap: reflow native widths only at rest.
++ * The existing round-list helper owns chord transforms while dragging. */
++static void rooms_rows_layout(lv_obj_t *list)
++{
++    lv_obj_update_layout(list);
++    lv_area_t viewport;
++    lv_obj_get_coords(list, &viewport);
++    for (unsigned i = 0; i < lv_obj_get_child_count(list); i++) {
++        lv_obj_t *row = lv_obj_get_child(list, i);
++        if (lv_obj_get_child_count(row) != 2) continue;
++        lv_area_t bounds;
++        lv_obj_get_coords(row, &bounds);
++        int height = lv_obj_get_height(row);
++        int cy = LV_CLAMP(viewport.y1 + height / 2,
++                          (bounds.y1 + bounds.y2) / 2,
++                          viewport.y2 - (height + 1) / 2);
++        int width = height + orb_chord_width(cy, cy,
++            ORB_RIM_MARGIN_GLASS + (height + 1) / 2);
++        lv_obj_t *name = lv_obj_get_child(row, 0), *value = lv_obj_get_child(row, 1);
++        lv_obj_set_size(row, width, height);
++        lv_obj_set_x(row, (ORB_SCREEN_D - width) / 2);
++        lv_obj_set_width(name, LV_MAX(16, width - 44 - lv_obj_get_width(value) - 12));
++        lv_obj_set_x(value, width - 22 - lv_obj_get_width(value));
++    }
++    orb_round_list_update(list);
++}
++
++static void rooms_rows_settled(lv_event_t *event)
++{
++    rooms_rows_layout(lv_event_get_target_obj(event));
+ }
+ 
+ static void rooms(orb_home_view_t *v)
+@@ -866,6 +904,8 @@
+      * names and state fully legible at the top and bottom of the list. */
+     lv_obj_update_layout(list);
+     lv_obj_scroll_to_y(list, v->rooms_scroll, LV_ANIM_OFF);
++    rooms_rows_layout(list);
++    lv_obj_add_event_cb(list, rooms_rows_settled, LV_EVENT_SCROLL_END, NULL);
+ 
+     int s_good_night = -1, s_leaving = -1;
+     for (unsigned i = 0; i < v->model->scene_count; i++) {
+diff --git a/firmware/components/orb_time_app/orb_time_view.c b/firmware/components/orb_time_app/orb_time_view.c
+--- a/firmware/components/orb_time_app/orb_time_view.c
++++ b/firmware/components/orb_time_app/orb_time_view.c
+@@ -85,6 +85,42 @@
+     lv_obj_set_pos(label, cx - width / 2, cy - lv_obj_get_height(label) / 2);
+     lv_obj_set_clickable(label, false);
+     return label;
++}
++
++/* HIG §§3/4/8: balance this fixed caption after resolving the signed
++ * font, and measure both lines against the narrower circle chord. */
++static lv_obj_t *reminder_voice_hint(orb_time_view_t *v)
++{
++    bool ax = v->size == ORB_CONTENT_SIZE_AX3;
++    char value[80] = "Set by voice: “remind me at 6:30…”";
++    lv_obj_t *hint = text(v->content, ax ? "Set by voice" : value,
++                          233, 388, ax ? 200 : 230, ORB_TEXT_FOOTNOTE2, 0);
++    if (ax) return hint;
++    const lv_font_t *font = lv_obj_get_style_text_font(hint, 0);
++    int tracking = lv_obj_get_style_text_letter_space(hint, 0);
++    int height = 2 * font->line_height + lv_obj_get_style_text_line_space(hint, 0);
++    int width = orb_chord_width(388 - height / 2, 388 + (height + 1) / 2 - 1,
++                                ORB_RIM_MARGIN_TEXT);
++    unsigned best = 0;
++    int score = LV_COORD_MAX;
++    for (unsigned i = 0; value[i]; i++) {
++        if (value[i] != ' ') continue;
++        value[i] = '\0';
++        lv_point_t first, second;
++        lv_text_get_size(&first, value, font, tracking, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
++        lv_text_get_size(&second, value + i + 1, font, tracking, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
++        value[i] = ' ';
++        int difference = abs(first.x - second.x);
++        if (first.x <= width && second.x <= width && difference < score) {
++            best = i; score = difference;
++        }
++    }
++    if (best) value[best] = '\n';
++    lv_label_set_text(hint, best ? value : "Set by voice");
++    lv_obj_set_width(hint, width);
++    lv_obj_update_layout(hint);
++    lv_obj_set_pos(hint, 233 - width / 2, 388 - lv_obj_get_height(hint) / 2);
++    return hint;
+ }
+ 
+ /* AX3 grows this line into the ring's narrow lower band; keep it to one line there. */
+@@ -816,12 +852,9 @@
+         colour(dn_lbl, lv_color_hex(0x5CF0FA));
+         lv_obj_center(dn_lbl);
+ 
+-        /* The frame sets this tertiary caption at 15 px. The smallest
+-         * orb_fonts style is 21 px, so the example wraps to a second line at
+-         * Default; AX3 keeps only the instruction to stay inside the chord. */
+-        v->rem_hint = text(v->content,
+-            v->size == ORB_CONTENT_SIZE_AX3 ? "Set by voice" : "Set by voice:\n“remind me at 6:30…”",
+-            233, 388, v->size == ORB_CONTENT_SIZE_AX3 ? 200 : 230, ORB_TEXT_FOOTNOTE2, 0);
++        /* The frame's 15 px caption maps to the signed 21 px minimum;
++         * balanced two-line Default and the concise AX3 variant stay safe. */
++        v->rem_hint = reminder_voice_hint(v);
+         colour(v->rem_hint, lv_color_hex(0x737376));
+         update(v);
+         return;

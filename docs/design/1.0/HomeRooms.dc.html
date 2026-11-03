@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home, rooms and scenes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 40px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 8px">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20h-5.5v-5.5h-6V20H3.5z"></path></svg>
+    <span style="font-size: 19px; font-weight: 600">Demo Home</span>
+    <span style="font-size: 17px; color: rgba(235,235,245,0.6); font-variant-numeric: tabular-nums">· 10 on · 71°F</span>
+  </div>
+
+  <div style="position: absolute; left: 73px; top: 80px; width: 320px; display: flex; flex-direction: column; gap: 8px">
+    <a href="Home.dc.html" style="height: 58px; border-radius: 29px; background: #1C1C1E; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; color: inherit; text-decoration: none"><span style="font-size: 20px; font-weight: 600">Living Room</span><span style="font-size: 17px; color: #FFD600; font-variant-numeric: tabular-nums">3 on</span></a>
+    <a href="Home.dc.html" style="height: 58px; border-radius: 29px; background: #1C1C1E; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; color: inherit; text-decoration: none"><span style="font-size: 20px; font-weight: 600">Kitchen</span><span style="font-size: 17px; color: #FFD600; font-variant-numeric: tabular-nums">2 on</span></a>
+    <a href="Home.dc.html" style="height: 58px; border-radius: 29px; background: #1C1C1E; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; color: inherit; text-decoration: none"><span style="font-size: 20px; font-weight: 600">Bedroom</span><span style="font-size: 17px; color: rgba(235,235,245,0.6)">Off</span></a>
+    <a href="Home.dc.html" style="height: 58px; border-radius: 29px; background: #1C1C1E; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; color: inherit; text-decoration: none"><span style="font-size: 20px; font-weight: 600">Office</span><span style="font-size: 17px; color: #FFD600; font-variant-numeric: tabular-nums">5 on</span></a>
+  </div>
+
+  <div style="position: absolute; left: 0; top: 352px; width: 466px; display: flex; justify-content: center; gap: 10px">
+    <button type="button" style="height: 48px; padding: 0 20px; border-radius: 24px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; font: 600 18px Inter, sans-serif">Good Night</button>
+    <button type="button" style="height: 48px; padding: 0 20px; border-radius: 24px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; font: 600 18px Inter, sans-serif">Leaving</button>
+  </div>
+
+  <div style="position: absolute; left: 0; top: 442px; width: 466px; display: flex; justify-content: center; gap: 8px">
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: #FFFFFF"></span>
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: rgba(235,235,245,0.3)"></span>
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: rgba(235,235,245,0.3)"></span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Approval card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 52px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 9px">
+    <span style="width: 26px; height: 26px; border-radius: 13px; background: #FF9230; display: flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l4 4-4 4M12 16h7"></path></svg></span>
+    <span style="font-size: 18px; font-weight: 500; color: rgba(235,235,245,0.6)">Claude · esp32s3-firmware</span>
+  </div>
+
+  <div style="position: absolute; left: 0; top: 104px; width: 466px; text-align: center; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.3px">Run this command?</div>
+
+  <div style="position: absolute; left: 78px; top: 158px; width: 310px; height: 60px; border-radius: 18px; background: #1C1C1E; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 21px; font-weight: 500">idf.py -j4 build</div>
+  <div style="position: absolute; left: 0; top: 230px; width: 466px; text-align: center; font-size: 18px; line-height: 24px; color: rgba(235,235,245,0.6)">in firmware/ · uses the network</div>
+
+  <button type="button" style="position: absolute; left: 83px; top: 288px; width: 140px; height: 60px; border-radius: 30px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; font: 600 22px Inter, sans-serif">Deny</button>
+  <button type="button" style="position: absolute; left: 243px; top: 288px; width: 140px; height: 60px; border-radius: 30px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; font: 600 22px Inter, sans-serif">Allow</button>
+
+  <button type="button" style="position: absolute; left: 143px; top: 364px; width: 180px; height: 44px; border-radius: 22px; border: 0; background: transparent; color: #FF9230; font: 600 19px Inter, sans-serif">Reply by voice</button>
+
+  <div style="position: absolute; left: 0; top: 422px; width: 466px; text-align: center; font-size: 15px; font-weight: 500; color: rgba(235,235,245,0.4); font-variant-numeric: tabular-nums">1 of 2</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

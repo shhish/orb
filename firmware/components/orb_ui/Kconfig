@@ -1,0 +1,12 @@
+menu "Orb presentation"
+
+config ORB_UI_SCROLL_EDGE_SOFT
+    bool "Consistent soft scroll edges under navigation and toward the bezel"
+    default y
+    help
+        Dissolve exiting list/prose content into the black canvas, with no
+        top fade on the first resting row. Keep navigation outside the content
+        viewport so glass samples black throughout a fling. Disable for the
+        previous surface-specific fade distances in a same-source A/B.
+
+endmenu

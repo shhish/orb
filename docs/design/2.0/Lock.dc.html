@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Locked, Always On</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Wednesday 28">
+    <defs><path id="lkTop" d="M 33,233 A 200,200 0 0 1 433,233"></path></defs>
+    <text font-family="Inter" font-size="23" font-weight="600" letter-spacing="1.2" text-anchor="middle"><textPath href="#lkTop" startOffset="50%"><tspan fill="rgba(255,69,58,0.75)">WEDNESDAY</tspan><tspan fill="rgba(255,255,255,0.7)"> 28</tspan></textPath></text>
+  </svg>
+  <div style="position: absolute; left: 0; top: 76px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 8px; opacity: 0.6">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFD60A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg>
+    <span style="font-size: 25px; font-weight: 500; font-variant-numeric: tabular-nums">72°</span>
+    <span style="font-size: 25px; color: rgba(235,235,245,0.8)">Sunny</span>
+  </div>
+  <div style="position: absolute; left: 0; top: 112px; width: 466px; text-align: center; font-size: 132px; font-weight: 500; line-height: 1; letter-spacing: -3px; font-variant-numeric: tabular-nums; color: rgba(255,255,255,0.72)">17:28</div>
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Claude 62 percent, Home 1 on, battery full">
+    <circle cx="128" cy="316" r="34" fill="none" stroke="rgba(255,159,10,0.55)" stroke-width="3" stroke-dasharray="132 214" transform="rotate(-90 128 316)"></circle>
+    <text x="128" y="325" font-family="Inter" font-size="25" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="middle">62</text>
+    <path d="M233 296L224 304h3v9h4v-5h4v5h4v-9h3z" fill="rgba(255,214,10,0.55)"></path>
+    <text x="233" y="340" font-family="Inter" font-size="21" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="middle">1 on</text>
+    <circle cx="338" cy="316" r="34" fill="none" stroke="rgba(48,209,88,0.55)" stroke-width="3"></circle>
+    <text x="338" y="325" font-family="Inter" font-size="23" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="middle">100</text>
+    <g transform="translate(223 396)" fill="none" stroke="rgba(235,235,245,0.55)" stroke-width="2.2" stroke-linecap="round"><rect x="1" y="9" width="18" height="13" rx="3"></rect><path d="M5 9V6a5 5 0 0 1 10 0v3"></path></g>
+  </svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

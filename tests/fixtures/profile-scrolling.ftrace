@@ -1,0 +1,19 @@
+# Synthetic, recorded-format LVGL 9.6 sample (not captured from real hardware).
+# Format copied from lv_profiler_builtin.c's formatter; timing is test data.
+2026-10-26T18:00:00Z I (42) main: scrolling demo
+2026-10-26T18:00:00Z === PROFILE BEGIN ===
+   LVGL-17 [1] 1.000000000: tracing_mark_write: B|1|lv_display_refr_timer
+   LVGL-33 [0] 1.001000000: tracing_mark_write: B|1|lv_draw_sw_dispatch
+   LVGL-17 [1] 1.002000000: tracing_mark_write: B|1|lv_refr_area
+   LVGL-17 [1] 1.003000000: tracing_mark_write: B|1|lv_draw_sw_blend
+   LVGL-17 [1] 1.004000000: tracing_mark_write: E|1|lv_draw_sw_blend
+   LVGL-33 [0] 1.005000000: tracing_mark_write: E|1|lv_draw_sw_dispatch
+   LVGL-17 [1] 1.006000000: tracing_mark_write: E|1|lv_refr_area
+   LVGL-17 [1] 1.010000000: tracing_mark_write: E|1|lv_display_refr_timer
+I (1050) sensor: unrelated console traffic
+   LVGL-17 [1] 1.020000000: tracing_mark_write: B|1|lv_display_refr_timer
+   LVGL-17 [1] 1.022000000: tracing_mark_write: B|1|lv_draw_sw_blend
+   LVGL-17 [1] 1.025000000: tracing_mark_write: E|1|lv_draw_sw_blend
+   LVGL-17 [1] 1.028000000: tracing_mark_write: E|1|lv_display_refr_timer
+=== PROFILE END ===
+@@ORBDEV OK profile 400

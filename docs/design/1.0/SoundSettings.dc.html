@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Settings, Sound</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 36px; width: 466px; text-align: center; font-size: 19px; font-weight: 600; color: #FF375F">Sound</div>
+
+  <a href="VolumeHUD.dc.html" style="position: absolute; left: 63px; top: 74px; width: 340px; height: 72px; border-radius: 36px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 20px; box-sizing: border-box; color: inherit; text-decoration: none">
+    <span style="width: 42px; height: 42px; border-radius: 21px; background: #FF375F; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 19V5L7.5 9.5z"></path><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"></path></svg></span>
+    <span style="font-size: 21px; font-weight: 600; flex: 1">Volume</span>
+    <span style="font-size: 19px; font-weight: 600; color: #FF375F; font-variant-numeric: tabular-nums">60%</span>
+  </a>
+
+  <div style="position: absolute; left: 63px; top: 158px; width: 340px; height: 72px; border-radius: 36px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 16px 0 20px; box-sizing: border-box">
+    <span style="display: flex; flex-direction: column; flex: 1"><span style="font-size: 21px; font-weight: 600">Spoken replies</span><span style="font-size: 16px; color: rgba(235,235,245,0.6)">Dot and agents read aloud</span></span>
+    <button type="button" role="switch" aria-checked="true" aria-label="Spoken replies" style="width: 64px; height: 38px; border-radius: 19px; border: 0; padding: 0; background: #30D158; display: flex; align-items: center; justify-content: flex-end; flex-shrink: 0"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; margin-right: 3px"></span></button>
+  </div>
+
+  <div style="position: absolute; left: 63px; top: 242px; width: 340px; height: 72px; border-radius: 36px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 16px 0 20px; box-sizing: border-box">
+    <span style="display: flex; flex-direction: column; flex: 1"><span style="font-size: 21px; font-weight: 600">Silent</span><span style="font-size: 16px; color: rgba(235,235,245,0.6)">Alarms ring</span></span>
+    <button type="button" role="switch" aria-checked="false" aria-label="Silent" style="width: 64px; height: 38px; border-radius: 19px; border: 0; padding: 0; background: #3A3A3C; display: flex; align-items: center; justify-content: flex-start; flex-shrink: 0"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; margin-left: 3px"></span></button>
+  </div>
+
+  <div style="position: absolute; left: 63px; top: 326px; width: 340px; height: 72px; border-radius: 36px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 20px; box-sizing: border-box">
+    <span style="display: flex; flex-direction: column; flex: 1"><span style="font-size: 21px; font-weight: 600">Voice</span><span style="font-size: 16px; color: rgba(235,235,245,0.6)">from the Mac</span></span>
+    <span style="font-size: 19px; color: rgba(235,235,245,0.6)">Ava</span>
+  </div>
+
+  <div style="position: absolute; left: 93px; top: 410px; width: 280px; height: 50px; border-radius: 25px; background: #1C1C1E; display: flex; align-items: center; justify-content: center; box-sizing: border-box; opacity: 0.5">
+    <span style="font-size: 17px; font-weight: 600">System sounds</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

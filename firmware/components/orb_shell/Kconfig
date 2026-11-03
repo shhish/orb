@@ -1,0 +1,13 @@
+menu "Orb shell"
+
+config ORB_OPEN_LATENCY_FIXES
+    bool "Preload and stage app opening (disable only for latency A/B control)"
+    default y
+    help
+        Prepare Default fonts before Wi-Fi, present navigation chrome before
+        destination construction, slice app/list construction across refreshes,
+        and retain at most two PSRAM launch snapshots. Disable only for a
+        same-source bench_open control with lazy fonts and full-page construction.
+        Navigation accounting remains available in both cases.
+
+endmenu

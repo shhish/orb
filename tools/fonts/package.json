@@ -1,0 +1,8 @@
+{
+  "name": "orb-fonts-tools",
+  "private": true,
+  "description": "lv_font_conv, pinned by package-lock.json, for scripts/fonts.sh",
+  "dependencies": {
+    "lv_font_conv": "1.5.3"
+  }
+}

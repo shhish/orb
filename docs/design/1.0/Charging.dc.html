@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Charging</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg style="position: absolute; left: 0; top: 0" width="466" height="466" viewBox="0 0 466 466" role="img" aria-label="Charging, 47 percent">
+    <circle cx="233" cy="233" r="200" fill="none" stroke="#1C1C1E" stroke-width="18"></circle>
+    <path d="M 233 33 A 200 200 0 0 1 270.5 429.5" fill="none" stroke="#30D158" stroke-width="18" stroke-linecap="round"></path>
+  </svg>
+  <div style="position: absolute; left: 0; top: 150px; width: 466px; display: flex; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" fill="#30D158" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12h-6z"></path></svg></div>
+  <div style="position: absolute; left: 0; top: 190px; width: 466px; text-align: center; font-size: 88px; line-height: 92px; font-weight: 600; letter-spacing: -2px; font-variant-numeric: tabular-nums">47%</div>
+  <div style="position: absolute; left: 0; top: 290px; width: 466px; text-align: center; font-size: 19px; color: rgba(235,235,245,0.6); font-variant-numeric: tabular-nums">Full in about 1 h 10 min</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

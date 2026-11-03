@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Face with an agent waiting</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 118px; width: 466px; text-align: center; font-size: 128px; line-height: 128px; font-weight: 600; letter-spacing: -4px; font-variant-numeric: tabular-nums">10:09</div>
+
+  <a href="Approval.dc.html" style="position: absolute; left: 143px; top: 252px; width: 180px; height: 36px; border-radius: 18px; background: rgba(255,146,48,0.18); color: #FF9230; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 20px; font-weight: 600">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11"></path><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"></path><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V13"></path><path d="M17 9.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7L4.4 14.4a1.6 1.6 0 0 1 2.5-2L8 13.5"></path></svg>
+    <span>2 waiting</span>
+  </a>
+
+  <div style="position: absolute; left: 93px; top: 302px; width: 140px; height: 28px; display: flex; justify-content: center; align-items: center; gap: 7px; font-size: 21px; font-weight: 600; font-variant-numeric: tabular-nums">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20h-5.5v-5.5h-6V20H3.5z"></path></svg>
+    <span>10 on</span>
+  </div>
+  <div style="position: absolute; left: 233px; top: 302px; width: 140px; height: 28px; display: flex; justify-content: center; align-items: center; gap: 7px; font-size: 21px; font-weight: 600; font-variant-numeric: tabular-nums">
+    <svg width="30" height="16" viewBox="0 0 30 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="25" height="14" rx="4" stroke="rgba(235,235,245,0.6)" stroke-width="2"></rect><rect x="4" y="4" width="15" height="8" rx="2" fill="#FFFFFF"></rect><rect x="27.5" y="5" width="2" height="6" rx="1" fill="rgba(235,235,245,0.6)"></rect></svg>
+    <span>80%</span>
+  </div>
+
+  <button type="button" aria-label="Apps" style="position: absolute; left: 203px; top: 360px; width: 60px; height: 60px; border-radius: 30px; border: 0; padding: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="#FFFFFF" aria-hidden="true"><circle cx="5" cy="5" r="2.6"></circle><circle cx="13" cy="5" r="2.6"></circle><circle cx="21" cy="5" r="2.6"></circle><circle cx="5" cy="13" r="2.6"></circle><circle cx="13" cy="13" r="2.6"></circle><circle cx="21" cy="13" r="2.6"></circle><circle cx="5" cy="21" r="2.6"></circle><circle cx="13" cy="21" r="2.6"></circle><circle cx="21" cy="21" r="2.6"></circle></svg>
+  </button>
+
+  <span style="position: absolute; left: 446px; top: 227px; width: 12px; height: 12px; border-radius: 6px; background: #FF9230"></span>
+
+  <div style="position: absolute; left: 0; top: 442px; width: 466px; display: flex; justify-content: center; gap: 8px">
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: rgba(235,235,245,0.3)"></span>
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: #FFFFFF"></span>
+    <span style="width: 8px; height: 8px; border-radius: 4px; background: #FF9230"></span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

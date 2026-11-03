@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "policy": "Shrink only. --regenerate-baseline refuses new sites or increased metrics.",
+  "scope": "Handwritten production firmware/components and firmware/main C/header/inc files; tests excluded.",
+  "limits": {
+    "file_size": 784,
+    "function_size": 100
+  },
+  "generated_dirs": [
+    "orb_fonts/fonts",
+    "orb_shell/fonts"
+  ],
+  "generated_files": [
+    "orb_fonts/src/orb_fonts_notices.c",
+    "orb_fonts/src/orb_fonts_table.c"
+  ],
+  "token_files": [
+    "orb_tokens/include/orb_color_tokens.h",
+    "orb_ui/include/orb_kit.h",
+    "orb_ui/include/orb_ui.h"
+  ],
+  "content_renderer_files": [
+    "orb_games/orb_game_logic.c"
+  ],
+  "content_renderer_functions": {
+    "orb_games/orb_game_play.c": [
+      "arc",
+      "disc",
+      "draw_miniature",
+      "draw_peek",
+      "star"
+    ],
+    "orb_games/orb_game_view.c": [
+      "draw",
+      "keepsake_sprite"
+    ],
+    "orb_games/orb_game_sprite_draw.c": [
+      "draw_gate",
+      "draw_star",
+      "game_sprite_draw",
+      "shape"
+    ],
+    "orb_faces/orb_faces.c": [
+      "face_accent"
+    ]
+  },
+  "counts": {
+    "file_size": 13
+  },
+  "violations": [
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_devtools/orb_devtools.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_devtools/orb_devtools.c",
+      "line": 1,
+      "detail": "3283 handwritten TU lines",
+      "value": 3283
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_display/orb_display.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_display/orb_display.c",
+      "line": 1,
+      "detail": "1771 handwritten TU lines",
+      "value": 1771
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_faces/orb_faces.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_faces/orb_faces.c",
+      "line": 1,
+      "detail": "1348 handwritten TU lines",
+      "value": 1348
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_games/orb_game_logic.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_games/orb_game_logic.c",
+      "line": 1,
+      "detail": "1637 handwritten TU lines",
+      "value": 1637
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_games/orb_game_view.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_games/orb_game_view.c",
+      "line": 1,
+      "detail": "1352 handwritten TU lines",
+      "value": 1352
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_home/orb_home_view.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_home/orb_home_view.c",
+      "line": 1,
+      "detail": "1476 handwritten TU lines",
+      "value": 1476
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_link/orb_link.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_link/orb_link.c",
+      "line": 1,
+      "detail": "2173 handwritten TU lines",
+      "value": 2173
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_model/orb_model.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_model/orb_model.c",
+      "line": 1,
+      "detail": "1502 handwritten TU lines",
+      "value": 1502
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_shell/orb_shell.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_shell/orb_shell.c",
+      "line": 1,
+      "detail": "1464 handwritten TU lines",
+      "value": 1464
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_shell/orb_workspace.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_shell/orb_workspace.c",
+      "line": 1,
+      "detail": "4412 handwritten TU lines",
+      "value": 4412
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_time_app/orb_time_view.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_time_app/orb_time_view.c",
+      "line": 1,
+      "detail": "1158 handwritten TU lines",
+      "value": 1158
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_ui/orb_glass.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_ui/orb_glass.c",
+      "line": 1,
+      "detail": "1114 handwritten TU lines",
+      "value": 1114
+    },
+    {
+      "rule": "file_size",
+      "key": "file_size:firmware/components/orb_ui/orb_ui.c:4dfa8fb104701ed6:0",
+      "path": "firmware/components/orb_ui/orb_ui.c",
+      "line": 1,
+      "detail": "1847 handwritten TU lines",
+      "value": 1847
+    }
+  ],
+  "exceptions": [
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:3b9d91dfd62fb7c6:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 299,
+      "detail": "PSRAM-stack translation unit: read_bounced calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:728c7095450fe6bc:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 360,
+      "detail": "PSRAM-stack translation unit: orb_fonts_port_map calls esp_partition_mmap",
+      "value": 1,
+      "reason": "Internal caller only. Raw font mapping is reached by synchronous font loading on the internal UI stack or the deferred main service preload; the PSRAM font task was removed. ESP-IDF flash_mmap.c uses esp_mmu_map when CONFIG_SPI_FLASH_ROM_IMPL=n, and esp_mmu_map.c s_stop_cache reaches esp_cache_freeze_caches_disable_interrupts, whose DRAM-stack assertion forbids PSRAM callers. orb_fonts_port_map has a debug-only internal-stack assertion. The PSRAM boot verifier never invokes this helper. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:92d8b933d8ebb66b:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 254,
+      "detail": "PSRAM-stack translation unit: copy_bitmaps calls esp_partition_munmap",
+      "value": 1,
+      "reason": "Internal caller only. copy_bitmaps is called by orb_assets_update_begin from the internal OTA installer before assets erase/write, with a debug-only internal-stack assertion. ESP-IDF esp_mmu_unmap freezes caches and requires a DRAM stack; PSRAM XIP does not make unmapping safe. Neither the PSRAM boot verifier nor the audio reader invokes this helper. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:92dfb590412187bf:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 394,
+      "detail": "PSRAM-stack translation unit: orb_fonts_port_unmap calls esp_partition_munmap",
+      "value": 1,
+      "reason": "Internal caller only. Font release runs on the internal UI stack or deferred main service preload; the PSRAM font task was removed. ESP-IDF esp_mmu_unmap freezes caches and requires a DRAM stack; PSRAM XIP does not make unmapping safe. orb_fonts_port_unmap has a debug-only internal-stack assertion. The PSRAM boot verifier never invokes this helper. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:b3d5b93ef56aac5b:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 69,
+      "detail": "PSRAM-stack translation unit: assets_partition calls esp_partition_find_first",
+      "value": 1,
+      "reason": "Partition metadata lookup only; does not program/erase flash or disable the cache. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:c902c44a3ec94acf:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 319,
+      "detail": "PSRAM-stack translation unit: section_bounds calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:d1a5146dc2517bca:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 81,
+      "detail": "PSRAM-stack translation unit: hash_partition calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:e690dd97c5ea771f:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 102,
+      "detail": "PSRAM-stack translation unit: orb_assets_verify_partition calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:e690dd97c5ea771f:1",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 123,
+      "detail": "PSRAM-stack translation unit: orb_assets_verify_partition calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    },
+    {
+      "rule": "psram_flash",
+      "key": "psram_flash:firmware/components/orb_fonts/port/orb_assets_esp.c:fb0417e37bf077a8:0",
+      "path": "firmware/components/orb_fonts/port/orb_assets_esp.c",
+      "line": 332,
+      "detail": "PSRAM-stack translation unit: orb_assets_read_payload calls esp_partition_read",
+      "value": 1,
+      "reason": "Read only. This TU requires CONFIG_SPIRAM_XIP_FROM_PSRAM at compile time. ESP-IDF components/spi_flash/spi_flash_os_func_app.c spi1_start uses only the SPI1 mutex for reads when !MMAP_EXECUTABLES_FROM_FLASH, keeping the cache enabled. No write/erase API is exempt."
+    }
+  ]
+}

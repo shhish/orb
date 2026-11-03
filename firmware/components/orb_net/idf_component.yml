@@ -1,0 +1,8 @@
+dependencies:
+  # BLE Wi-Fi provisioning; its esp_prov client is what the hub runs (README.md)
+  espressif/network_provisioning:
+    version: ^1.4.0
+    require: private
+  espressif/mdns:
+    version: ^1.14.0
+    require: private

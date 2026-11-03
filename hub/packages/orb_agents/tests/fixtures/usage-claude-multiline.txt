@@ -1,0 +1,17 @@
+Claude subscription usage
+
+Current session
+████████████ 28% used
+Resets 4:39pm (America/New_York)
+
+Current week (all models)
+████████ 41.5% used
+Resets Nov 2 at 12am (America/New_York)
+
+Current week (Sonnet)
+██ 95% remaining
+Resets Mon 09:00 (America/New_York)
+
+Session token costs
+Total cost: $0.00
+Total duration (API): 1s

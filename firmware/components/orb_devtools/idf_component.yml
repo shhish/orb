@@ -1,0 +1,4 @@
+dependencies:
+  lvgl/lvgl:
+    version: "*"
+    override_path: "../../third_party/lvgl__lvgl"

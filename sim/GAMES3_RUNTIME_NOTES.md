@@ -1,0 +1,27 @@
+# Games 3 runtime and controls audit
+
+These notes support `GAMES3_REVIEW.md`. No Git writes, board commands, shell/nav/ui/home changes, palette changes, or owner-state changes were made by this audit.
+
+## Findings and fixes
+
+- **Beads:** the runtime continuously submitted `GAME_BEAD` from flow RMS, up to five times a second. Removed that path entirely and suppressed all game-owned cues for Beads, including entry, pause, resume and exit. The signed palette asset remains. The runtime selects the new true-gravity helper and does not capture a play neutral for Beads.
+- **Marble:** continuous `GAME_ROLL` every 0.5 s repeated a cue without a meaningful event. Removed it; collection, hit, stage completion and final completion remain meaningful. Round entry/restart capture neutral; Resume, waking and input-mode return retain that frame. Missing sensor samples clear elapsed/quiet observation, preserving an already captured frame. Explicit End Round exits once, with one Close cue from lifecycle exit. The existing path history, moved-gate release resolution, bounded input mailbox and lossless rewind release are preserved.
+- **Marble rim mismatch (#25):** holding the field was the only rewind path. Added immediate tangential rim activation after 8 px inside the outer 40 px; release or lost contact stops rewind and cannot also pause/nudge. Holding anywhere remains the alternative. First-stage teaching now says **Turn rim to rewind**. Rim movement uses the existing rewind solver and history; no new action queue, allocations or decorative effect.
+- **Orbit:** the game is tap controlled, with no captured tilt neutral. Lane-switch, collect and hit cues remain. Game over now uses Failed rather than the previous generic Done. Restart, result, pause and exit stay explicit.
+- **Ring Snake:** held tilt input retains its round frame through 10 seconds and Resume. Pause copy no longer promises recentering. Touch arrows previously overlapped the r140 lane; moved their centres from (187,345)/(279,345) to (187,293)/(279,293), matching the logic clearance update by the other-game audit. The 72 px controls keep a 20 px gap; their edge plus 12 px head and 8 px clearance stays inside r140. Best moves to y164 only in touch mode, clearing the arrows and preserving the normal tilt-mode layout. Snake game over now uses Failed.
+- **Pop:** successful timed completion retains Done. Explicit End Round is neutral Close, preserving the score/result and explicit replay/Done routes. Pop and collection cues stay event based.
+- **Shared lifecycle:** pause-sheet entrance uses Open, Resume Close, lifecycle exit Close. OS pause/wake sound is suppressed when the round was already user paused or over. Beads stays fully silent. No mic start/stop aliases are reused. PWR short pause-then-lock remains owned by the shell; game pause request is idempotent, OS pause clears contacts/catch-up, and BOOT/Back from pause queues normal lifecycle exit/save. No shell routing changes are needed.
+- **Persistence:** existing validated OGS1 per-game best records and OGK1 Marble keepsakes retain atomic writes outside LVGL/publication locks. Failed writes preserve actual saved progress. Runtime storage tests still cover corrupt lengths/checksums, unavailable storage, retry on next completion/exit, and namespace isolation. Frame code remains allocation/file-I/O free.
+
+## Deterministic verification
+
+- `nice make -j4 build/test_game_runtime && nice ./build/test_game_runtime` from `firmware/components/orb_games/tests/host`: **25,929 checks passed**, AddressSanitizer and UndefinedBehaviorSanitizer, after all runtime changes.
+- `nice ctest --test-dir sim/build -j4 -R '^(games_render|game_runtime)$' --output-on-failure`: both passed; games_render **8.82 s**, game_runtime **0.01 s** at the local scoped run. Root reruns the final whole suite after integration.
+- Runtime trace asserts true force remains after a 10 s held tilt for Marble, Beads and Snake; Resume retains force without another 300 ms capture. Legacy expectations that waking/Resume neutralize the held pose were replaced because they contradicted fixed round-start neutral and true Beads gravity.
+- Silent Beads trace covers nine seconds across fast/slow/rest flow, reversal, pause, Resume and lifecycle exit; every sound queue counter stays **zero**. Removed the prior test that explicitly required 2–5 flow hiss cues/second because the owner requires silence.
+- Runtime asserts no Marble rolling cue across 90 moving steps and duplicate service polls; pause/resume cues occur once; Orbit/Snake losing outcomes use Failed and never increment Done. Explicit Pop End Round no longer increments Done.
+- Native LVGL pointer tests now exercise rim movement before the long-press timeout, release without stray pause, existing held/lost-contact fallback, both relocated Snake controls, and separation of Best text from touch targets in default/AX3 profiles. Existing retained/full redraw and accessibility checks pass.
+
+## Design-gate evidence to integrate
+
+No canvas/material/accent/typography system changed. Changes follow HIG §§1/3/4/6/7/8: control clearance, meaningful event sound, immediate rim input, concise teaching and truthful Resume copy. The lead/root captures and independently reviews the final new tutorial, Snake touch play and pause at Default and AX3+Bold+Reduce Transparency. Required evidence paths and gate results belong in `GAMES3_REVIEW.md`; no physical-board visual or timing acceptance is claimed by these notes.

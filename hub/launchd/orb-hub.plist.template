@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Render with scripts/render_launchd.py; never load this template directly. -->
+<plist version="1.0"><dict>
+<key>Label</key><string>__LABEL_PREFIX__.orb-hub</string>
+<key>WorkingDirectory</key><string>__REPO_PATH__</string>
+<key>ProgramArguments</key><array>
+<string>__PYTHON__</string><string>-m</string><string>orb_hub</string>
+<string>serve</string><string>--port</string><string>8444</string>
+<string>--agents</string><string>--dot</string>
+<string>--log-file</string><string>__LOG_DIR__/hub.log</string>
+</array>
+<key>RunAtLoad</key><true/><key>KeepAlive</key><true/>
+<!-- The hub rotates hub.log; only early startup failures go to launchd.log. -->
+<key>StandardOutPath</key><string>__LOG_DIR__/launchd.log</string>
+<key>StandardErrorPath</key><string>__LOG_DIR__/launchd.log</string>
+<key>ProcessType</key><string>Standard</string>
+</dict></plist>

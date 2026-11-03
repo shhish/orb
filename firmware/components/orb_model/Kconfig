@@ -1,0 +1,12 @@
+menu "Orb model"
+
+config ORB_MODEL_DEMO
+    bool "Run the offline shell preview with synthetic sessions/cards"
+    default n
+    help
+        Explicit developer fixture switch. The application labels this preview
+        as Demo and does not start networking or connect to the live hub. Saved
+        Wi-Fi and pairing data are preserved. Service actions are disabled.
+        Leave this off for normal firmware, including paired devices.
+
+endmenu

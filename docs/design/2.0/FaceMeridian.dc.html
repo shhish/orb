@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Face: Meridian</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Analog face at 10:09 with four subdials">
+    <circle cx="233" cy="233" r="216" fill="none" stroke="rgba(235,235,245,0.35)" stroke-width="8" stroke-dasharray="2 20.62" transform="rotate(-90.25 233 233)"></circle>
+    <circle cx="233" cy="233" r="212" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-dasharray="5 106" transform="rotate(-90.7 233 233)"></circle>
+
+    <circle cx="233" cy="128" r="40" fill="#141416"></circle>
+    <circle cx="128" cy="233" r="40" fill="#141416"></circle>
+    <circle cx="338" cy="233" r="40" fill="#141416"></circle>
+    <circle cx="233" cy="338" r="40" fill="#141416"></circle>
+
+    <circle cx="128" cy="233" r="34" fill="none" stroke="rgba(255,159,10,0.22)" stroke-width="6"></circle>
+    <circle cx="128" cy="233" r="34" fill="none" stroke="#FF9F0A" stroke-width="6" stroke-linecap="round" stroke-dasharray="132 214" transform="rotate(-90 128 233)"></circle>
+    <text x="128" y="242" font-family="Inter" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle">62</text>
+
+    <circle cx="338" cy="233" r="34" fill="none" stroke="#30D158" stroke-width="6"></circle>
+    <text x="338" y="242" font-family="Inter" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="middle">100</text>
+
+    <g transform="translate(219 104)" fill="none" stroke="#FFD60A" stroke-width="2.4" stroke-linecap="round"><circle cx="14" cy="10" r="4.5"></circle><path d="M14 1.5v2M14 16.5v2M5.5 10h2M20.5 10h2"></path></g>
+    <text x="233" y="150" font-family="Inter" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="middle">72°</text>
+
+    <text x="233" y="330" font-family="Inter" font-size="19" font-weight="700" fill="#FF453A" text-anchor="middle" letter-spacing="1">WED</text>
+    <text x="233" y="361" font-family="Inter" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle">28</text>
+
+    <line x1="233" y1="233" x2="233" y2="118" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" transform="rotate(304.5 233 233)"></line>
+    <line x1="233" y1="233" x2="233" y2="58" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" transform="rotate(54 233 233)"></line>
+    <line x1="233" y1="262" x2="233" y2="44" stroke="{{accent}}" stroke-width="3" stroke-linecap="round" transform="rotate(222 233 233)"></line>
+    <circle cx="233" cy="233" r="9" fill="{{accent}}"></circle>
+    <circle cx="233" cy="233" r="3.5" fill="#000000"></circle>
+  </svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF9F0A","options":["#FF9F0A","#FF453A","#64D2FF","#30D158","#FFFFFF"]},"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() { return { accent: this.props.accent ?? '#FF9F0A' }; }
+}
+</script>
+</body>
+</html>

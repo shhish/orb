@@ -1,0 +1,21 @@
+menu "Orb fonts"
+
+    config ORB_FONTS
+        bool
+        default y
+        select LV_USE_FONT_COMPRESSED
+        select LV_USE_OBSERVER
+        help
+            Orb's large text sizes, the clock faces and the icon fonts are stored
+            RLE-compressed, which LVGL only decodes with LV_USE_FONT_COMPRESSED.
+            orb_fonts_subject() is an LVGL observer subject.
+
+    config ORB_FONTS_PACK_PARTITION
+        string "Partition holding the font pack"
+        default "assets"
+        help
+            All normal type styles live in a versioned font pack here. Use
+            scripts/sign-assets.sh, then the migration script or assets OTA;
+            unsigned packs are never loaded or included in ordinary flash args.
+
+endmenu

@@ -1,0 +1,7 @@
+{"type":"assistant","uuid":"synth-a1","timestamp":"2026-10-27T12:00:00Z","message":{"id":"msg1","content":[{"type":"thinking","thinking":"PRIVATE_THINKING_SENTINEL"},{"type":"text","text":"I checked the layout. I am editing the navigation."},{"type":"tool_use","id":"edit1","name":"Edit","input":{"file_path":"/synthetic/orb_nav.c","old_string":"BODY_OMITTED","new_string":"BODY_OMITTED"}}]}}
+{"type":"user","uuid":"synth-u1","timestamp":"2026-10-27T12:00:01Z","message":{"content":[{"type":"tool_result","tool_use_id":"edit1","is_error":false,"content":"file changed"}]}}
+{"type":"assistant","uuid":"synth-a2","timestamp":"2026-10-27T12:00:02Z","message":{"id":"msg2","content":[{"type":"tool_use","id":"read1","name":"Read","input":{"file_paths":["one.c","two.c","three.c"]}}]}}
+{"type":"user","uuid":"synth-u2","timestamp":"2026-10-27T12:00:03Z","message":{"content":[{"type":"tool_result","tool_use_id":"read1","content":"raw file bodies never escape"}]}}
+{"type":"assistant","uuid":"synth-a3","timestamp":"2026-10-27T12:00:04Z","message":{"id":"msg3","content":[{"type":"tool_use","id":"build1","name":"Bash","input":{"command":"BUILD_TOKEN=throwaway idf.py -j4 build"}}]}}
+{"type":"user","uuid":"synth-u3","timestamp":"2026-10-27T12:00:05Z","message":{"content":[{"type":"tool_result","tool_use_id":"build1","content":"638 passed in 1.2s"}]}}
+{"type":"assistant","uuid":"synth-a4","timestamp":"2026-10-27T12:00:06Z","message":{"id":"msg4","stop_reason":"end_turn","content":[{"type":"text","text":"The build is complete. The navigation is ready."}]}}

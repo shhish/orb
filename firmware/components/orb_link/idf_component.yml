@@ -1,0 +1,7 @@
+dependencies:
+  # ESP-IDF 6 dropped its built-in json component. orb_link.h exposes cJSON,
+  # so it's a public dependency.
+  espressif/cjson:
+    version: "^1.7.19"
+    require: public
+  espressif/esp_websocket_client: "^1.8.0"

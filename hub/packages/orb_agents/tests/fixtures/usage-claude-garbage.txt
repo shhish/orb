@@ -1,0 +1,4 @@
+this is not a usage report
+Current session: lots used · resets whenever
+%%%%
+Current week (all models): 101% used · resets Oct 99 at 4pm (America/New_York)

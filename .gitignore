@@ -1,0 +1,23 @@
+build/
+firmware/build-stable/
+sim/build-*/
+sdkconfig
+sdkconfig.old
+# Worktrees symlink this to trunk's copy; the bare name also ignores the symlink.
+managed_components
+.DS_Store
+.vscode/
+.cache/
+shots/
+*.dSYM/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+ui-results/
+profiles/
+crashes/
+dist/
+*.sqlite3*
+work/

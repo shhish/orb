@@ -1,0 +1,5 @@
+dependencies:
+  espressif/cjson:
+    version: "^1.7.19"
+    # orb_link.h includes cJSON.h
+    require: public

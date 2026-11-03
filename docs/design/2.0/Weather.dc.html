@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Weather</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Weather: 72 degrees, sunny, high 75, low 58">
+    <defs><path id="wxTop" d="M 33,233 A 200,200 0 0 1 433,233"></path></defs>
+    <text font-family="Inter" font-size="23" font-weight="600" fill="#64D2FF" letter-spacing="1.2" text-anchor="middle"><textPath href="#wxTop" startOffset="50%">[YOUR CITY]</textPath></text>
+    <g transform="translate(205 74)" fill="none" stroke="#FFD60A" stroke-width="3" stroke-linecap="round"><circle cx="28" cy="28" r="11"></circle><path d="M28 4v6M28 46v6M4 28h6M46 28h6M11 11l4 4M41 41l4 4M11 45l4-4M41 15l4-4"></path></g>
+    <text x="80" y="330" font-family="Inter" font-size="21" fill="rgba(235,235,245,0.6)" text-anchor="middle">6PM</text>
+    <text x="80" y="356" font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" text-anchor="middle">71°</text>
+    <text x="155" y="368" font-family="Inter" font-size="21" fill="rgba(235,235,245,0.6)" text-anchor="middle">7PM</text>
+    <text x="155" y="394" font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" text-anchor="middle">68°</text>
+    <text x="233" y="380" font-family="Inter" font-size="21" fill="rgba(235,235,245,0.6)" text-anchor="middle">8PM</text>
+    <text x="233" y="406" font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" text-anchor="middle">65°</text>
+    <text x="311" y="368" font-family="Inter" font-size="21" fill="rgba(235,235,245,0.6)" text-anchor="middle">9PM</text>
+    <text x="311" y="394" font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" text-anchor="middle">63°</text>
+    <text x="386" y="330" font-family="Inter" font-size="21" fill="rgba(235,235,245,0.6)" text-anchor="middle">10PM</text>
+    <text x="386" y="356" font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" text-anchor="middle">61°</text>
+  </svg>
+  <div style="position: absolute; left: 0; top: 138px; width: 466px; text-align: center; font-size: 100px; font-weight: 700; line-height: 1; letter-spacing: -2px; font-variant-numeric: tabular-nums">72°</div>
+  <div style="position: absolute; left: 0; top: 246px; width: 466px; text-align: center; font-size: 25px; color: rgba(235,235,245,0.6)">Sunny · H 75° L 58°</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

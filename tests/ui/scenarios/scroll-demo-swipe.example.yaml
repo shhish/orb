@@ -1,0 +1,23 @@
+version: 1
+name: scroll-demo-swipe
+example: true
+description: >-
+  Example only. The present main.c animates the list continuously, so elapsed
+  waits alone cannot produce repeatable captures. Freeze/synchronize animation
+  and IMU lighting before using this as a regression gate. No golden is shipped.
+steps:
+  - wait: 1.0
+  - shot: before
+  - expect:
+      golden: examples/scroll-before.png
+      tolerance: 2
+      max_changed: 0.005
+      masks: []
+  - swipe: [233, 360, 233, 140, 300]
+  - wait: 0.6
+  - shot: after
+  - expect:
+      golden: examples/scroll-after.png
+      tolerance: 2
+      max_changed: 0.005
+      masks: []

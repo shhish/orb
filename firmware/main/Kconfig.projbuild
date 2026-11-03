@@ -1,0 +1,60 @@
+menu "Orb runtime"
+
+    config ORB_NETWORK_BSS_PSRAM
+        bool "Place IDF network-library BSS in PSRAM"
+        depends on SPIRAM
+        select SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY
+        default n
+        help
+            Use IDF's linker fragments for external Wi-Fi/lwIP/Bluetooth BSS.
+            Independent of generic malloc placement; moves linked static state,
+            not DMA buffers or task stacks. Exact recovery requires the ELF map.
+            Keep off until reconnect, provisioning and concurrent OTA/rendering
+            have been measured, since this changes radio/cache access patterns.
+
+    config ORB_SMALL_ALLOCATIONS_PSRAM
+        bool "Prefer PSRAM even for small generic heap allocations"
+        depends on SPIRAM_USE_MALLOC
+        default n
+        help
+            Set the generic malloc/realloc internal-preference threshold to zero
+            before LVGL and network startup. The normal threshold is 1024 bytes.
+            Moves small widget/style/draw metadata and other generic allocations
+            toward PSRAM, with IDF's normal fallback on exhaustion. Explicit
+            internal/DMA allocations and FreeRTOS stacks/queues stay internal.
+            May trade CPU/cache performance for contiguous internal RAM; compare
+            this alone before trying the second display buffer. Default off
+            until provisioning, TLS reconnect and OTA are verified on hardware.
+
+    config ORB_DYNAMIC_FREQUENCY_SCALING
+        bool "Allow the idle CPU to scale to 80 MHz"
+        depends on PM_ENABLE
+        default n
+        help
+            Experimental: run at 240 MHz while tasks are active and allow
+            80 MHz when both cores are idle. Light sleep is separately gated
+            by ORB_LIGHT_SLEEP and runtime eligibility. Requires
+            CONFIG_PM_ENABLE. Keep disabled until board timing, networking
+            and power measurements validate the change. Developer command
+            power reports cumulative mode residency when PM_PROFILING is on.
+
+    config ORB_LIGHT_SLEEP
+        bool "Allow automatic light sleep in battery Sleep"
+        depends on PM_ENABLE && FREERTOS_USE_TICKLESS_IDLE
+        select PM_LIGHT_SLEEP_CALLBACKS
+        default y
+        help
+            Keep a NO_LIGHT_SLEEP lock except during confirmed panel-off Sleep
+            on battery with no active work. GPIO touch/buttons, Wi-Fi and IDF's
+            timer wake must all be armed successfully. USB stays awake unless
+            the RAM-only developer override is explicitly enabled.
+
+    config ORB_GLASS_BACKDROP_CACHE
+        bool "Cache reusable glass backdrops"
+        default n
+        help
+            Experimental renderer cache; buffers must use PSRAM. Keep disabled
+            until pixel equivalence, scene invalidation, memory use and device
+            frame timing have been checked. Independent of CPU frequency scaling.
+
+endmenu

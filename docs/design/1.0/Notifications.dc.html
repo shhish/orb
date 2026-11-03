@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notifications</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 34px; width: 466px; text-align: center; font-size: 19px; font-weight: 600; color: rgba(235,235,245,0.6)">Notifications</div>
+
+  <div style="position: absolute; left: 93px; top: 72px; width: 280px; height: 64px; border-radius: 32px; background: #1C1C1E; display: flex; align-items: center; gap: 12px; padding: 0 18px; box-sizing: border-box; opacity: 0.5">
+    <span style="width: 36px; height: 36px; border-radius: 18px; background: #6D7CFF; flex-shrink: 0"></span>
+    <span style="font-size: 18px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Dot replied</span>
+  </div>
+
+  <div style="position: absolute; left: 63px; top: 150px; width: 340px; height: 80px; border-radius: 40px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 22px; box-sizing: border-box">
+    <span style="width: 44px; height: 44px; border-radius: 22px; background: #FF9230; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l4 4-4 4M12 16h7"></path></svg></span>
+    <span style="display: flex; flex-direction: column; min-width: 0; flex: 1"><span style="font-size: 21px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Build finished</span><span style="font-size: 17px; color: rgba(235,235,245,0.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Claude · esp32s3-firmware</span></span>
+    <span style="font-size: 16px; color: rgba(235,235,245,0.45); font-variant-numeric: tabular-nums">2m</span>
+  </div>
+
+  <div style="position: absolute; left: 63px; top: 244px; width: 340px; height: 80px; border-radius: 40px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 22px; box-sizing: border-box">
+    <span style="width: 44px; height: 44px; border-radius: 22px; background: #FFD600; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20h-5.5v-5.5h-6V20H3.5z"></path></svg></span>
+    <span style="display: flex; flex-direction: column; min-width: 0; flex: 1"><span style="font-size: 21px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Front door unlocked</span><span style="font-size: 17px; color: rgba(235,235,245,0.6)">Home</span></span>
+    <span style="font-size: 16px; color: rgba(235,235,245,0.45); font-variant-numeric: tabular-nums">9m</span>
+  </div>
+
+  <div style="position: absolute; left: 93px; top: 338px; width: 280px; height: 64px; border-radius: 32px; background: #1C1C1E; display: flex; align-items: center; gap: 12px; padding: 0 18px; box-sizing: border-box; opacity: 0.5">
+    <span style="width: 36px; height: 36px; border-radius: 18px; background: #0091FF; flex-shrink: 0"></span>
+    <span style="font-size: 18px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Updated to 0.4.0</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

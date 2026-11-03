@@ -1,0 +1,15 @@
+menu "Orb developer tools"
+
+    config ORB_DEVTOOLS
+        bool "Screenshots and injected touches over USB and paired development link"
+        default y
+        select LV_USE_SNAPSHOT
+        select FREERTOS_USE_TRACE_FACILITY
+        select FREERTOS_GENERATE_RUN_TIME_STATS
+        select FREERTOS_VTASKLIST_INCLUDE_COREID if !FREERTOS_SMP
+        help
+            Answers shot / tap / hold / swipe / top / heap / power / profile commands on the USB console
+            (scripts/orb-dev.sh). Costs nothing per frame; a screenshot
+            briefly holds the LVGL lock while the screen renders into PSRAM.
+
+endmenu

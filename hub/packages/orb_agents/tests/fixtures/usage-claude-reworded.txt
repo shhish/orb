@@ -1,0 +1,5 @@
+Claude subscription usage
+
+Session limit: 12.5% used · resets Dec 31 at 11:59pm (America/New_York)
+Weekly all models: 45% used - resets Jan 2 at 12am (America/New_York)
+Week (Sonnet): 3% used · resets Jan 3 at 4pm (America/New_York)

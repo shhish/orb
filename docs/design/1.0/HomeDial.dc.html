@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home device dial</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg style="position: absolute; left: 0; top: 0" width="466" height="466" viewBox="0 0 466 466" role="img" aria-label="Brightness 70 percent">
+    <path d="M 84.5 381.5 A 210 210 0 1 1 381.5 381.5" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round"></path>
+    <path d="M 84.5 381.5 A 210 210 0 1 1 402.9 109.6" fill="none" stroke="#FFD600" stroke-width="14" stroke-linecap="round"></path>
+    <circle cx="402.9" cy="109.6" r="13" fill="#FFFFFF"></circle>
+  </svg>
+
+  <div style="position: absolute; left: 0; top: 112px; width: 466px; display: flex; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"></path></svg></div>
+  <div style="position: absolute; left: 0; top: 150px; width: 466px; text-align: center; font-size: 88px; line-height: 92px; font-weight: 600; letter-spacing: -2px; font-variant-numeric: tabular-nums">70%</div>
+  <div style="position: absolute; left: 0; top: 252px; width: 466px; text-align: center; font-size: 24px; line-height: 30px; font-weight: 600">Ceiling Light</div>
+  <div style="position: absolute; left: 0; top: 284px; width: 466px; text-align: center; font-size: 19px; line-height: 24px; color: rgba(235,235,245,0.6)">Living Room</div>
+
+  <button type="button" aria-label="Turn off" aria-pressed="true" style="position: absolute; left: 201px; top: 336px; width: 64px; height: 64px; border-radius: 32px; border: 0; background: rgba(255,214,0,0.24); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), inset 0 0 0 1px rgba(255,214,0,0.35); color: #FFE14D; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3v8"></path><path d="M7 6.3a7 7 0 1 0 10 0"></path></svg></button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

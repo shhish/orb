@@ -1,0 +1,3 @@
+dependencies:
+  # IDF 6 dropped its bundled json component; orb_link's API is cJSON too.
+  espressif/cjson: "^1.7.19"

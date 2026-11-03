@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Always On</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 150px; width: 466px; text-align: center; font-size: 128px; line-height: 128px; font-weight: 400; letter-spacing: -4px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.62)">10:09</div>
+  <div style="position: absolute; left: 0; top: 292px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 22px; font-weight: 500; color: rgba(255,146,48,0.75)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11"></path><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"></path><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V13"></path><path d="M17 9.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7L4.4 14.4a1.6 1.6 0 0 1 2.5-2L8 13.5"></path></svg>
+    <span>2 waiting</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
