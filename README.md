@@ -6,6 +6,33 @@ speaker codec, motion sensor and battery power management. Its LVGL interface
 includes clock faces, agent session views, Home controls, timers and offline
 games. [Architecture](docs/design.md) · [Device protocol](docs/protocol.md)
 
+<p align="center">
+  <img src="docs/readme/faces.png" alt="Four Orb clock faces: digital with weather and complications, analog Meridian, activity rings, and the colour picker" width="100%">
+</p>
+
+**Faces.** True black, round-first layouts and Liquid Glass controls, following
+the [Orb HIG](docs/hig.md): a digital face with weather, battery and Home
+complications, the analog Meridian face, activity rings, and per-face colour.
+
+<p align="center">
+  <img src="docs/readme/home.png" alt="Weather forecast, Home rooms, Home scenes and a running timer" width="100%">
+</p>
+
+**Around the house.** Weather with the next hours, Apple Home rooms and scenes
+through HomeRelay, and timers.
+
+<p align="center">
+  <img src="docs/readme/agents.png" alt="A coding agent asking to allow a build, the Allow and Deny card, notifications from Codex and Dot, and the Marble game" width="100%">
+</p>
+
+**Agents and play.** Claude and Codex sessions surface on the Smart Stack, and
+a permission request becomes an Allow / Deny card on the device.
+Notifications, and offline games like Marble, tilt to play.
+
+<sub>Faces, weather, scenes and timer are frames from the
+[design system](docs/design/); Home rooms, agents, notifications and Marble are
+renders of the real firmware UI from the desktop emulator (`make emu`).</sub>
+
 An **always-on Mac** runs the Python hub in [`hub/`](hub/README.md). It pairs
 devices, maintains their pinned-TLS links, signs and serves firmware updates,
 and can connect agent sessions, Dot/MCP and local speech transcription.
