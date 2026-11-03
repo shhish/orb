@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Orb Design 2.0 system sheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1840px; height: 1560px; box-sizing: border-box; padding: 64px; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 40px">
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-size: 56px; font-weight: 700; letter-spacing: -1px">Orb Design 2.0</h1>
+      <p style="margin: 0; font-size: 22px; color: rgba(235,235,245,0.6)">One family on a round display. Every value here is in device pixels at 466 × 466. Design 1.0 still applies where this sheet is silent.</p>
+    </div>
+    <p style="margin: 0; font-size: 18px; color: rgba(235,235,245,0.6)">Owner review, 28 Oct 2026</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px">
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">Follow the circle</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">Rows fit the chord. Titles curve along the rim instead of truncating. Rings and gauges live on the rim.</span></div>
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">One size per role</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">Every standalone round control is 80. Focus is a ring, never a bigger disc.</span></div>
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">One primary</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">At most one tinted primary per screen, centred on the bottom arc. Everything else is neutral glass.</span></div>
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">The centre is content</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">System gestures start at the edge. A drag in the middle only scrolls, taps or drags what is under it.</span></div>
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">No hidden globals</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">The rim drives what is on screen, or nothing. Volume lives in Control Center. Global actions are physical buttons.</span></div>
+    <div style="background: #1C1C1E; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 20px; font-weight: 700">It answers</span><span style="font-size: 16px; color: rgba(235,235,245,0.6); line-height: 1.4">Every touch presses, every step ticks, every place opens from where you touched it and closes back into it.</span></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+
+    <div style="background: #0E0E10; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6)">DISCS</span>
+      <div style="display: flex; align-items: flex-end; gap: 26px">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><span style="width: 80px; height: 80px; border-radius: 40px; background: #FF9F0A; display: flex; align-items: center; justify-content: center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7l5 5-5 5"></path><path d="M12 17h7"></path></svg></span><span style="font-size: 14px; color: rgba(235,235,245,0.6)">80 app</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><span style="width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 33px; font-weight: 700">K</span><span style="font-size: 14px; color: rgba(235,235,245,0.6)">80 glass</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><span style="width: 80px; height: 80px; border-radius: 40px; background: #FFD60A; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 33px; font-weight: 700; outline: 3px solid #FFFFFF; outline-offset: 4px">BB</span><span style="font-size: 14px; color: rgba(235,235,245,0.6)">80 focused</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><span style="width: 56px; height: 56px; border-radius: 28px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><circle cx="6" cy="6" r="2.2"></circle><circle cx="12" cy="6" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><circle cx="6" cy="12" r="2.2"></circle><circle cx="12" cy="12" r="2.2"></circle><circle cx="18" cy="12" r="2.2"></circle><circle cx="6" cy="18" r="2.2"></circle><circle cx="12" cy="18" r="2.2"></circle><circle cx="18" cy="18" r="2.2"></circle></svg></span><span style="font-size: 14px; color: rgba(235,235,245,0.6)">56 mini</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><span style="width: 40px; height: 40px; border-radius: 20px; background: #FF375F; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"></path></svg></span><span style="font-size: 14px; color: rgba(235,235,245,0.6)">40 row</span></div>
+      </div>
+      <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">80 for every standalone round control: app icons, rooms, accessories, Control Center toggles, play and pause. 56 for utilities: the Face apps button, close, more. 40 leads a list row. 180 is artwork only (game previews). In a group every disc is the same size, and focus adds a 3 px white ring 4 px outside it.</div>
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6); margin-top: 8px">APP ICONS</span>
+      <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">Apple's watch icons and SF Symbols are licensed for Apple platforms only, so Orb keeps its own: a flat accent disc with a Framework7 glyph at 46% of the disc, Semibold weight. The glyph is white, or black on the light accents (yellow, teal, mint), by luminance. No gradients or glows.</div>
+    </div>
+
+    <div style="background: #0E0E10; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6)">BUTTONS</span>
+      <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+        <div style="display: flex; align-items: center; gap: 18px"><span style="height: 64px; padding: 0 44px; border-radius: 32px; background: rgba(48,209,88,0.26); box-shadow: inset 0 0 0 1px rgba(48,209,88,0.55); color: #30D158; font-size: 28px; font-weight: 600; display: flex; align-items: center">Play</span><span style="font-size: 15px; color: rgba(235,235,245,0.6)">Primary · 64 tall · tinted with the app accent · Headline</span></div>
+        <div style="display: flex; align-items: center; gap: 18px"><span style="height: 52px; padding: 0 34px; border-radius: 26px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); color: #FFFFFF; font-size: 25px; font-weight: 600; display: flex; align-items: center">Done</span><span style="font-size: 15px; color: rgba(235,235,245,0.6)">Secondary · 52 tall · neutral glass · Caption 2</span></div>
+        <div style="display: flex; align-items: center; gap: 18px"><span style="width: 80px; height: 80px; border-radius: 40px; background: rgba(100,210,255,0.26); box-shadow: inset 0 0 0 1px rgba(100,210,255,0.55); display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="#64D2FF" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"></rect><rect x="14" y="5" width="4" height="14" rx="1.2"></rect></svg></span><span style="width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span><span style="font-size: 15px; color: rgba(235,235,245,0.6)">Glyph buttons · 80 · tinted primary, glass secondary</span></div>
+      </div>
+      <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">At most one primary per screen, centred on the bottom arc (centre y 380), with secondary actions beside it on the same arc or as a secondary capsule below. No text-only buttons: "Done" is a secondary capsule. Two glyph buttons sit symmetrically on the bottom arc at ±42° (Timer: cancel, pause). Pressed: scale to 94% in 80 ms and the glass brightens, released with a 160 ms spring.</div>
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6); margin-top: 8px">TYPE (Inter, orb_fonts sizes)</span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 65px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums">17:28 <span style="font-size: 16px; font-weight: 400; color: rgba(235,235,245,0.6)">Clock and hero numbers</span></span>
+        <span style="font-size: 33px; font-weight: 700">Guest Suite Bath <span style="font-size: 16px; font-weight: 400; color: rgba(235,235,245,0.6)">Title 3 hero, fits the chord or wraps to 2 lines</span></span>
+        <span style="font-size: 28px; font-weight: 600">Headline <span style="font-size: 16px; font-weight: 400; color: rgba(235,235,245,0.6)">row titles, primary buttons</span></span>
+        <span style="font-size: 25px; color: rgba(235,235,245,0.6)">Caption 2 secondary <span style="font-size: 16px">#EBEBF5 at 60%</span></span>
+        <span style="font-size: 23px; font-weight: 600; color: #FFD60A; letter-spacing: 0.5px">RIM TITLE · Footnote 1 <span style="font-size: 16px; font-weight: 400; color: rgba(235,235,245,0.6)">curved, accent</span></span>
+      </div>
+    </div>
+
+    <div style="background: #0E0E10; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6)">THE RIM</span>
+      <div style="display: flex; gap: 22px; align-items: center">
+        <div style="position: relative; width: 233px; height: 233px; border-radius: 117px; background: #000000; box-shadow: 0 0 0 1px #2C2C2E; overflow: hidden; flex-shrink: 0">
+          <svg width="233" height="233" viewBox="0 0 466 466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Rim title and rim page indicator">
+            <defs><path id="mTop" d="M 33,233 A 200,200 0 0 1 433,233"></path><path id="mBot" d="M 21,233 A 212,212 0 0 0 445,233"></path></defs>
+            <text font-family="Inter" font-size="23" font-weight="600" fill="#FFD60A" letter-spacing="0.6" text-anchor="middle"><textPath href="#mTop" startOffset="50%">GUEST SUITE BATH</textPath></text>
+            <text font-family="Inter" font-size="21" font-weight="500" fill="rgba(235,235,245,0.6)" text-anchor="middle"><textPath href="#mBot" startOffset="50%">Hold for scenes</textPath></text>
+            <circle cx="233" cy="233" r="224" fill="none" stroke="#2C2C2E" stroke-width="6" stroke-dasharray="0" opacity="0"></circle>
+            <path d="M 449.4,175.0 A 224,224 0 0 1 449.4,291.0" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.9"></path>
+          </svg>
+        </div>
+        <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">Rim titles curve along the top on a 200 px baseline, centred at 12 o'clock, within 120° (about 20 characters): a title names the place, and counts belong in the content. Longer titles step down to Footnote 2, then ellipsise. When a full rim ring is drawn (Timer, a light), the title sits inside it on a 176 px baseline. Bottom rim captions read upright on a 212 px baseline. Scroll position is a 4 px arc on the right rim at radius 224, outside the widest rows. Page dots sit inside any rim ring.</div>
+      </div>
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6); margin-top: 6px">GESTURES · the centre is content</span>
+      <div style="display: flex; gap: 22px; align-items: center">
+        <div style="position: relative; width: 233px; height: 233px; flex-shrink: 0">
+          <svg width="233" height="233" viewBox="0 0 466 466" role="img" aria-label="Edge bands for system gestures">
+            <circle cx="233" cy="233" r="213" fill="none" stroke="rgba(10,132,255,0.45)" stroke-width="40"></circle>
+            <circle cx="233" cy="233" r="193" fill="#141416"></circle>
+            <text x="233" y="34" font-family="Inter" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">Notifications</text>
+            <text x="233" y="452" font-family="Inter" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">Smart Stack</text>
+            <text x="30" y="240" font-family="Inter" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">Back</text>
+            <text x="438" y="240" font-family="Inter" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">CC</text>
+            <text x="233" y="230" font-family="Inter" font-size="26" font-weight="600" fill="#FFFFFF" text-anchor="middle">Content</text>
+            <text x="233" y="262" font-family="Inter" font-size="19" fill="rgba(235,235,245,0.6)" text-anchor="middle">scroll · tap · hold</text>
+          </svg>
+        </div>
+        <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">A system gesture starts within 40 px of the bezel and moves inward. Travel along that band is the crown. A drag that starts inside it belongs to the screen: it never opens Notifications, the Stack, Control Center or Back. Only the Face, which has nothing to scroll, also swipes between places from the centre. Over 10 px of travel is a scroll, never a tap.</div>
+      </div>
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6); margin-top: 6px">BUTTONS ON THE CASE</span>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; font-size: 16px; line-height: 1.4">
+        <span><b>PWR press</b> <span style="color: rgba(235,235,245,0.6)">Lock (Always On)</span></span>
+        <span><b>PWR double</b> <span style="color: rgba(235,235,245,0.6)">Control Center</span></span>
+        <span><b>PWR hold 2 s</b> <span style="color: rgba(235,235,245,0.6)">Power sheet</span></span>
+        <span><b>BOOT press</b> <span style="color: rgba(235,235,245,0.6)">Back · on the Face: Apps</span></span>
+        <span><b>BOOT hold</b> <span style="color: rgba(235,235,245,0.6)">Talk</span></span>
+        <span><b>Hold the Face</b> <span style="color: rgba(235,235,245,0.6)">Face gallery</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px">
+    <div style="background: #0E0E10; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6)">COLOUR · one accent per app</span>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap">
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #FF9F0A"></span>Claude · needs you</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #0A84FF"></span>Codex · system</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #5E5CE6"></span>Dot</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #FFD60A"></span>Home</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #64D2FF"></span>Time</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #30D158"></span>Play · done</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #FF375F"></span>Sound</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #FF453A"></span>Calendar weekday · listening · deny</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #8E8E93"></span>Settings</span>
+      </div>
+      <div style="font-size: 16px; line-height: 1.5; color: rgba(235,235,245,0.75)">True black canvas. The app accent colours its rim title, primary button, rings and focus state, and nothing else. Dates follow iOS Calendar: the weekday in red, the day number in white.</div>
+    </div>
+    <div style="background: #0E0E10; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+      <span style="font-size: 15px; font-weight: 600; letter-spacing: 1.5px; color: rgba(235,235,245,0.6)">MOTION AND FEEDBACK · the same everywhere</span>
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 8px 16px; font-size: 16px; line-height: 1.4">
+        <b>Open an app</b><span style="color: rgba(235,235,245,0.75)">Iris from the touched icon, 280 ms ease-out · open cue</span>
+        <b>Close / Back</b><span style="color: rgba(235,235,245,0.75)">The exact reverse into its icon, 240 ms, for every app · close cue</span>
+        <b>System layers</b><span style="color: rgba(235,235,245,0.75)">Follow the finger in from their edge, leave the way they came, 260 ms</span>
+        <b>Press</b><span style="color: rgba(235,235,245,0.75)">94% in 80 ms, glass brightens · tap cue only when it acts</span>
+        <b>Rim step</b><span style="color: rgba(235,235,245,0.75)">One detent tick per step, the focus ring glides to the next disc</span>
+        <b>Toggle / result</b><span style="color: rgba(235,235,245,0.75)">Toggle on/off cues · success and failure cues with words, never colour alone</span>
+        <b>Memory</b><span style="color: rgba(235,235,245,0.75)">Every place restores its scroll, focus and page after Back, re-entry and wake</span>
+        <b>Lock</b><span style="color: rgba(235,235,245,0.75)">PWR or idle: content fades to Always On over 400 ms, then nothing animates</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1840,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

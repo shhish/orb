@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+parity_sim_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
+exec python3 "$parity_sim_dir/parity.py" parity-compare "$@"

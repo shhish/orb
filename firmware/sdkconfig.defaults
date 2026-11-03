@@ -1,0 +1,145 @@
+# Board: ESP32-S3R8 (8MB octal PSRAM) + 32MB GigaDevice quad flash, USB-Serial/JTAG only
+CONFIG_IDF_TARGET="esp32s3"
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+CONFIG_FREERTOS_HZ=1000
+CONFIG_FREERTOS_USE_TICKLESS_IDLE=y
+
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+CONFIG_ESPTOOLPY_FLASHSIZE_32MB=y
+
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+# Code and constants run from PSRAM, so flash writes (OTA) don't stall the UI
+CONFIG_SPIRAM_FETCH_INSTRUCTIONS=y
+CONFIG_SPIRAM_RODATA=y
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+CONFIG_ESP32S3_INSTRUCTION_CACHE_32KB=y
+CONFIG_ESP32S3_DATA_CACHE_64KB=y
+CONFIG_ESP32S3_DATA_CACHE_LINE_64B=y
+
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
+
+# Retain the latest crash in flash; reserve an independent panic stack.
+# IDF 6.1 selects ELF format and SHA-256 integrity with this option.
+CONFIG_ESP_COREDUMP_ENABLE_TO_FLASH=y
+CONFIG_ESP_COREDUMP_CHECK_BOOT=y
+CONFIG_ESP_COREDUMP_STACK_SIZE=2048
+CONFIG_ESP_COREDUMP_MAX_TASKS_NUM=64
+# Full hash in boot/panic logs and the coredump application identity note.
+CONFIG_APP_RETRIEVE_LEN_ELF_SHA=64
+
+# app_main runs boot (littlefs stat, Wi-Fi, link) and the input loop on this stack. IDF's
+# 3.5 KB default overflowed silently into the heap once app_main's frame reached 1.4 KB;
+# boot logs the high-water mark.
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144
+# LVGL: two draw threads, 60 Hz refresh, allocations from the C heap (PSRAM)
+CONFIG_LV_OS_FREERTOS=y
+CONFIG_LV_DRAW_SW_DRAW_UNIT_CNT=2
+# Orbit/Snake and system discs exceed the upstream four-radius cache. Board
+# profiling found 18 ms/frame in Orbit BORDER tasks; retain warm AA radii.
+CONFIG_LV_DRAW_SW_CIRCLE_CACHE_SIZE=32
+# Draw threads use under 2 KB of stack drawing the demo: 4 KB leaves margin, 8 KB (default) wastes internal RAM
+CONFIG_LV_DRAW_THREAD_STACK_SIZE=4096
+CONFIG_LV_DEF_REFR_PERIOD=16
+CONFIG_LV_USE_CLIB_MALLOC=y
+CONFIG_LV_USE_CLIB_STRING=y
+CONFIG_LV_USE_CLIB_SPRINTF=y
+CONFIG_LV_USE_FLOAT=y
+# orb_nav admits settled RGB565 screen snapshots before pixel-only transitions.
+CONFIG_LV_USE_SNAPSHOT=y
+CONFIG_LV_USE_ARCLABEL=y
+CONFIG_LV_USE_LOG=y
+CONFIG_LV_LOG_LEVEL_WARN=y
+CONFIG_LV_LOG_PRINTF=y
+# S3 SIMD fills and copies (components/orb_lv_simd)
+CONFIG_LV_DRAW_SW_ASM_CUSTOM=y
+CONFIG_LV_DRAW_SW_ASM_CUSTOM_INCLUDE="orb_lv_blend.h"
+# Fork ships without demos and examples
+# CONFIG_LV_BUILD_EXAMPLES is not set
+# CONFIG_LV_BUILD_DEMOS is not set
+
+# Integrated provisioning and network memory budget.
+# Bluetooth LE, only for Wi-Fi provisioning
+CONFIG_BT_ENABLED=y
+CONFIG_BT_NIMBLE_ENABLED=y
+CONFIG_ESP_PROTOCOMM_SUPPORT_SECURITY_VERSION_1=y
+# CONFIG_ESP_PROTOCOMM_SUPPORT_SECURITY_VERSION_2 is not set
+# Internal RAM: Bluetooth
+CONFIG_BT_CTRL_RUN_IN_FLASH_ONLY=y
+CONFIG_BT_NIMBLE_MEM_ALLOC_MODE_EXTERNAL=y
+# CONFIG_BT_NIMBLE_ROLE_CENTRAL is not set
+# CONFIG_BT_NIMBLE_ROLE_OBSERVER is not set
+CONFIG_BT_NIMBLE_MAX_CONNECTIONS=1
+# Internal RAM: Wi-Fi, lwIP, mbedTLS (Espressif's "memory saving" rank for S3 with PSRAM)
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC=y
+# CONFIG_ESP_WIFI_IRAM_OPT is not set
+# CONFIG_ESP_WIFI_RX_IRAM_OPT is not set
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=6
+CONFIG_ESP_WIFI_STATIC_TX_BUFFER_NUM=6
+CONFIG_ESP_WIFI_RX_BA_WIN=12
+# CONFIG_ESP_WIFI_SOFTAP_SUPPORT is not set
+# CONFIG_ESP_WIFI_ENTERPRISE_SUPPORT is not set
+# Internal RAM: mDNS
+CONFIG_MDNS_MEMORY_ALLOC_SPIRAM=y
+CONFIG_MDNS_TASK_CREATE_FROM_SPIRAM=y
+# CONFIG_MDNS_ENABLE_CONSOLE_CLI is not set
+# CONFIG_MDNS_ENABLE_BROWSE is not set
+# CONFIG_MDNS_PREDEF_NETIF_AP is not set
+
+# RSA signed updates without burning Secure Boot eFuses. USB flashing signs too.
+CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT=y
+CONFIG_SECURE_SIGNED_APPS_RSA_SCHEME=y
+CONFIG_SECURE_SIGNED_ON_UPDATE_NO_SECURE_BOOT=y
+# CONFIG_SECURE_BOOT_BUILD_SIGNED_BINARIES is not set
+CONFIG_LOG_DYNAMIC_LEVEL_CONTROL=y
+
+# Keep generic UI/blur allocations out of BLE and DMA internal memory.
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=1024
+
+# LittleFS caches and VFS metadata are small; the generic allocator would put
+# them in internal RAM. Fail the optional app-storage mount on PSRAM exhaustion
+# rather than competing with networking and the display's DMA buffers.
+CONFIG_LITTLEFS_MALLOC_STRATEGY_SPIRAM=y
+
+# Full speed during transfers, 80 MHz idle; runtime policy permits battery Sleep only.
+CONFIG_PM_ENABLE=y
+# CONFIG_PM_DFS_INIT_AUTO is not set
+CONFIG_ORB_DYNAMIC_FREQUENCY_SCALING=y
+CONFIG_PM_PROFILING=y
+CONFIG_ORB_LIGHT_SLEEP=y
+# Preserve the 24 KiB internal-heap target. CPU retention alone needs 8.58 KiB
+# on S3, plus cache tags; optional IRAM acceleration buys microseconds per wake.
+# CONFIG_PM_SLP_IRAM_OPT is not set
+# CONFIG_PM_RTOS_IDLE_OPT is not set
+# CONFIG_ESP_WIFI_SLP_IRAM_OPT is not set
+# CONFIG_PM_POWER_DOWN_CPU_IN_LIGHT_SLEEP is not set
+# CONFIG_ESP_PHY_MAC_BB_PD is not set
+# Retain module flash/PSRAM leakage protection. Board pins explicitly retain
+# their active configuration so reset, PA and I2C do not float during sleep.
+CONFIG_ESP_SLEEP_GPIO_RESET_WORKAROUND=y
+CONFIG_ESP_SLEEP_FLASH_LEAKAGE_WORKAROUND=y
+CONFIG_ESP_SLEEP_PSRAM_LEAKAGE_WORKAROUND=y
+CONFIG_ESP_SLEEP_MSPI_NEED_ALL_IO_PU=y
+# Exact backdrop/result reuse, bounded to 192 KiB of PSRAM by main.
+CONFIG_ORB_GLASS_BACKDROP_CACHE=y
+# Direct PSRAM DMA underflowed on this board at both 80 and 40 MHz; retain fallback.
+# CONFIG_ORB_DISPLAY_PSRAM_PIPELINE is not set
+
+# Wave 2 A/B experiments: keep the accepted configuration until board evidence.
+# CONFIG_ORB_SMALL_ALLOCATIONS_PSRAM is not set
+# CONFIG_ORB_NETWORK_BSS_PSRAM is not set
+# CONFIG_ORB_DISPLAY_TALL_BANDS is not set
+CONFIG_ORB_DISPLAY_INTERNAL_DOUBLE_BUFFER=y
+# Pass 3 board A/B: live admission regresses lists/games. Keep per-band scan avoidance.
+# CONFIG_ORB_DISPLAY_TE_PACING is not set
+# CONFIG_ORB_DISPLAY_INTERNAL_IMAGE_SCRATCH is not set
+# CONFIG_ORB_DISPLAY_INTERNAL_BLUR_SCRATCH is not set
+# CONFIG_ORB_DISPLAY_INTERNAL_DRAW_MASKS is not set

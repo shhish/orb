@@ -1,0 +1,1 @@
+{"t":"evt","m":"card.show","p":{"id":"c","kind":"choice","title":"Choose","body":"Next check?","options":[{"id":"yes","label":"Continue","role":"primary"},{"id":"no","label":"Cancel","role":"cancel"}],"reply":false,"priority":"normal"}}

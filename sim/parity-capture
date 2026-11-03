@@ -1,0 +1,5 @@
+#!/bin/sh
+# Builds are explicit; this wrapper only runs the deterministic evidence tool.
+set -eu
+parity_sim_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
+exec python3 "$parity_sim_dir/parity.py" parity-capture "$@"

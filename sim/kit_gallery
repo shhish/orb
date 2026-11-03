@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Render the complete public kit in each supported review variant.
+set -euo pipefail
+
+sim="$(cd "$(dirname "$0")" && pwd)"
+build="$sim/build"
+output="${1:-$build/kit-gallery}"
+variant="${2:-all}"
+
+nice cmake -S "$sim" -B "$build" -DCMAKE_BUILD_TYPE=RelWithDebInfo
+nice cmake --build "$build" --target kit_gallery -j4
+
+mkdir -p "$output"
+if [[ "$variant" == all ]]; then
+    for mode in default ax3 ax3-bold-rt; do
+        mkdir -p "$output/$mode"
+        nice "$build/kit_gallery" "$output/$mode" "$mode"
+    done
+else
+    nice "$build/kit_gallery" "$output" "$variant"
+fi

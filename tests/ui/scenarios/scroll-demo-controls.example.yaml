@@ -1,0 +1,20 @@
+version: 1
+name: scroll-demo-controls
+example: true
+description: >-
+  Example smoke sequence for the current glass controls. These controls do not
+  yet navigate; this checks appearance after tap/hold release. Freeze the demo
+  animation and keep the IMU fixed before accepting goldens. No golden is shipped.
+steps:
+  - tap: [128, 84]
+  - hold: [338, 84, 300]
+  - tap: [233, 384]
+  - wait: 0.5
+  - shot: controls
+  - expect:
+      golden: examples/scroll-controls.png
+      tolerance: 2
+      max_changed: 0.005
+      # Illustration: mask only the tiny variable title area after confirming
+      # its position in the chosen firmware; masks are x, y, width, height.
+      masks: []

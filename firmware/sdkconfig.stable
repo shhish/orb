@@ -1,0 +1,3 @@
+# Stable release overlay. Always use an isolated SDKCONFIG; saved choices take
+# precedence over defaults, and firmware/CMakeLists.txt rejects devtools there.
+# CONFIG_ORB_DEVTOOLS is not set

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>First run, how to move</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 150px; width: 466px; text-align: center; font-size: 26px; line-height: 32px; font-weight: 600">Welcome to Orb</div>
+
+  <div style="position: absolute; left: 0; top: 40px; width: 466px; display: flex; flex-direction: column; align-items: center; gap: 4px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(235,235,245,0.7)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg>
+    <span style="font-size: 16px; font-weight: 600">Notifications</span>
+  </div>
+  <div style="position: absolute; left: 0; top: 372px; width: 466px; display: flex; flex-direction: column; align-items: center; gap: 4px">
+    <span style="font-size: 16px; font-weight: 600">Smart Stack</span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(235,235,245,0.7)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+  </div>
+  <div style="position: absolute; left: 30px; top: 218px; display: flex; align-items: center; gap: 6px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    <span style="font-size: 16px; font-weight: 600; color: #FFD600">Home</span>
+  </div>
+  <div style="position: absolute; left: 352px; top: 218px; display: flex; align-items: center; gap: 6px">
+    <span style="font-size: 16px; font-weight: 600; color: #FF9230">Agents</span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF9230" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+  </div>
+
+  <div style="position: absolute; left: 0; top: 262px; width: 466px; text-align: center; font-size: 18px; line-height: 25px; color: rgba(235,235,245,0.75)">Swipe to move. Hold BOOT to talk.<br>Press PWR for apps.</div>
+  <button type="button" style="position: absolute; left: 173px; top: 318px; width: 120px; height: 48px; border-radius: 24px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; font: 600 19px Inter, sans-serif">Got it</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Formatting and lint settings for the font generator: black, isort and ruff agree on
+# these; flake8 reads .flake8. Run from tools/fonts.
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["budget", "build", "emit", "icons", "inter", "lvconv", "lvgl_check", "mapped", "pack", "preview", "spec", "status_fonts"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "PIE", "RSE", "RET", "PGH"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["budget", "build", "emit", "icons", "inter", "lvconv", "lvgl_check", "mapped", "pack", "preview", "spec", "status_fonts"]

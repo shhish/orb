@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Control Center</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Battery 100 percent, Wi-Fi Example Wi-Fi">
+    <defs><path id="ccTop" d="M 33,233 A 200,200 0 0 1 433,233"></path></defs>
+    <text font-family="Inter" font-size="23" font-weight="600" fill="rgba(235,235,245,0.6)" letter-spacing="1" text-anchor="middle"><textPath href="#ccTop" startOffset="50%"><tspan fill="#30D158">100%</tspan> · EXAMPLE WI-FI</textPath></text>
+    <path d="M 58.5,355.2 A 213,213 0 0 0 407.5,355.2" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="14" stroke-linecap="round"></path>
+    <path d="M 58.5,355.2 A 213,213 0 0 0 {{endX}},{{endY}}" fill="none" stroke="{{arcColor}}" stroke-width="14" stroke-linecap="round"></path>
+    <circle cx="{{endX}}" cy="{{endY}}" r="15" fill="#FFFFFF"></circle>
+  </svg>
+
+  <span style="position: absolute; left: 93px; top: 92px; width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center" aria-label="Silent"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5h4"></path></svg></span>
+  <span style="position: absolute; left: 193px; top: 92px; width: 80px; height: 80px; border-radius: 40px; background: #5E5CE6; display: flex; align-items: center; justify-content: center" aria-label="Focus on"><svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg></span>
+  <span style="position: absolute; left: 293px; top: 92px; width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center" aria-label="Flashlight"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10v4l-2 3v11H9V10L7 7z"></path><path d="M12 13v2"></path></svg></span>
+  <span style="position: absolute; left: 93px; top: 192px; width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center" aria-label="Lock"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg></span>
+  <span style="position: absolute; left: 193px; top: 192px; width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center" aria-label="Microphone"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"></path></svg></span>
+  <span style="position: absolute; left: 293px; top: 192px; width: 80px; height: 80px; border-radius: 40px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center" aria-label="Settings"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8"></path></svg></span>
+
+  <div style="position: absolute; left: 0; top: 300px; width: 466px; display: flex; justify-content: center; gap: 14px">
+    <span style="height: 46px; padding: 0 18px; border-radius: 23px; display: flex; align-items: center; gap: 8px; font-size: 23px; font-weight: 600; font-variant-numeric: tabular-nums; background: {{sunBg}}; box-shadow: {{sunRing}}; color: {{sunInk}}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"></path></svg>70%</span>
+    <span style="height: 46px; padding: 0 18px; border-radius: 23px; display: flex; align-items: center; gap: 8px; font-size: 23px; font-weight: 600; font-variant-numeric: tabular-nums; background: {{volBg}}; box-shadow: {{volRing}}; color: {{volInk}}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path></svg>61%</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["brightness","volume"],"default":"brightness"},"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const volume = (this.props.mode ?? 'brightness') === 'volume';
+    const glass = 'rgba(120,120,128,0.26)';
+    return {
+      endX: volume ? 280.0 : 312.8, endY: volume ? 440.8 : 430.5,
+      arcColor: volume ? '#FF375F' : '#FFFFFF',
+      sunBg: volume ? glass : 'rgba(255,255,255,0.22)', sunRing: volume ? 'none' : 'inset 0 0 0 1.5px rgba(255,255,255,0.7)', sunInk: volume ? 'rgba(235,235,245,0.7)' : '#FFFFFF',
+      volBg: volume ? 'rgba(255,55,95,0.26)' : glass, volRing: volume ? 'inset 0 0 0 1.5px rgba(255,55,95,0.7)' : 'none', volInk: volume ? '#FF375F' : 'rgba(235,235,245,0.7)'
+    };
+  }
+}
+</script>
+</body>
+</html>

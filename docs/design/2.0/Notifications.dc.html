@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notifications</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Notifications, 3">
+    <defs><path id="ntTop" d="M 33,233 A 200,200 0 0 1 433,233"></path></defs>
+    <text font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" letter-spacing="1.2" text-anchor="middle"><textPath href="#ntTop" startOffset="50%">NOTIFICATIONS</textPath></text>
+    <path d="M 449.4,175.0 A 224,224 0 0 1 455.6,205.0" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
+    <path d="M 455.6,205.0 A 224,224 0 0 1 449.4,291.0" fill="none" stroke="rgba(235,235,245,0.25)" stroke-width="4" stroke-linecap="round"></path>
+  </svg>
+  <div style="position: absolute; left: 34px; top: 108px; width: 398px; height: 92px; border-radius: 46px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 30px 0 18px; box-sizing: border-box">
+    <span style="width: 40px; height: 40px; border-radius: 20px; background: #FF9F0A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7l5 5-5 5"></path><path d="M12 17h7"></path></svg></span>
+    <span style="display: flex; flex-direction: column; flex: 1; min-width: 0"><span style="font-size: 25px; font-weight: 600; white-space: nowrap">Needs your approval</span><span style="font-size: 21px; color: rgba(235,235,245,0.6); white-space: nowrap">Claude · esp32s3-firmware</span></span>
+    <span style="font-size: 21px; color: rgba(235,235,245,0.6); align-self: flex-start; margin-top: 18px">now</span>
+  </div>
+  <div style="position: absolute; left: 28px; top: 210px; width: 410px; height: 92px; border-radius: 46px; background: #1C1C1E; display: flex; align-items: center; gap: 14px; padding: 0 30px 0 18px; box-sizing: border-box">
+    <span style="width: 40px; height: 40px; border-radius: 20px; background: #0A84FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"></path></svg></span>
+    <span style="display: flex; flex-direction: column; flex: 1; min-width: 0"><span style="font-size: 25px; font-weight: 600; white-space: nowrap">Changes ready</span><span style="font-size: 21px; color: rgba(235,235,245,0.6); white-space: nowrap">Codex · demo-project</span></span>
+    <span style="font-size: 21px; color: rgba(235,235,245,0.6); align-self: flex-start; margin-top: 18px">12m</span>
+  </div>
+  <div style="position: absolute; left: 70px; top: 314px; width: 326px; height: 76px; border-radius: 38px; background: #1C1C1E; display: flex; align-items: center; gap: 12px; padding: 0 24px 0 16px; box-sizing: border-box; opacity: 0.5">
+    <span style="width: 34px; height: 34px; border-radius: 17px; background: #FFD60A; flex-shrink: 0"></span>
+    <span style="font-size: 22px; font-weight: 600; white-space: nowrap">Front door opened</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

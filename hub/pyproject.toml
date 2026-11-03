@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orb-hub"
+description = "Mac mini hub for Orb devices: pairing, pinned-TLS link, signed firmware feed, Wi-Fi setup over BLE"
+readme = "README.md"
+requires-python = ">=3.13"
+dynamic = ["version"]
+dependencies = [
+    "aiohttp>=3.10",
+    "bleak>=0.22",
+    "cryptography>=43",
+    "esptool>=5.0",
+    "ifaddr>=0.2",
+    "zeroconf>=0.136",
+]
+
+[project.optional-dependencies]
+agents = ["orb-agents==0.1.0"]
+dot = ["orb-mcp==0.1.0"]
+mcp = ["orb-mcp==0.1.0"]
+voice = ["mlx-whisper>=0.4; sys_platform == 'darwin' and platform_machine == 'arm64'"]
+dev = [
+    "black>=24",
+    "flake8>=7",
+    "isort>=5.13",
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+orb-hub = "orb_hub.cli:main"
+
+[tool.setuptools]
+packages = ["orb_hub", "orb_hub.provision"]
+
+[tool.setuptools.dynamic]
+version = { attr = "orb_hub.__version__" }
+
+[tool.black]
+line-length = 120
+target-version = ["py313"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+# The repo's pre-commit hook runs ruff; keep it in step with black and flake8.
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint.per-file-ignores]
+# Link.request preserves its public RPC timeout keyword and enforces timeout_at.
+# A config exception works with both the default and ASYNC-enabled hook profiles.
+"orb_hub/link.py" = ["ASYNC109"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

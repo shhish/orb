@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spoken reply</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 52px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 9px">
+    <span style="width: 26px; height: 26px; border-radius: 13px; background: #6D7CFF; display: flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L4.5 20l1.2-3.6C4.3 15 3.5 13.2 3.5 11.2 3.5 7.2 7.3 4 12 4z"></path></svg></span>
+    <span style="font-size: 18px; font-weight: 600">Dot</span>
+  </div>
+
+  <div style="position: absolute; left: 68px; top: 104px; width: 330px; text-align: center; font-size: 25px; line-height: 34px; font-weight: 500"><span style="color: #FFFFFF">Standup at 9:30, then a free afternoon.</span> <span style="color: rgba(235,235,245,0.35)">Rain after 4, so take the umbrella.</span></div>
+
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 262px; width: 466px; height: 36px; display: flex; justify-content: center; align-items: center; gap: 6px">
+    <span style="width: 6px; height: 10px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 22px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 34px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 18px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 28px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 12px; border-radius: 3px; background: #6D7CFF"></span>
+    <span style="width: 6px; height: 8px; border-radius: 3px; background: #6D7CFF"></span>
+  </div>
+
+  <button type="button" aria-label="Stop speaking" style="position: absolute; left: 201px; top: 320px; width: 64px; height: 64px; border-radius: 32px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2.5"></rect></svg></button>
+  <div style="position: absolute; left: 0; top: 394px; width: 466px; text-align: center; font-size: 15px; font-weight: 500; color: rgba(235,235,245,0.45)">Double-tap or just talk to stop</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

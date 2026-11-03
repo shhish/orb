@@ -1,0 +1,25 @@
+Orb sound contact sheet — mono PCM16, 32000 Hz
+
+Moment                 Duration  PCM bytes  Notes
+detent                     8 ms       512  -1 dBFS, zero DC
+tap                       12 ms       768  -1 dBFS, zero DC
+open                      90 ms      5760  -1 dBFS, zero DC
+close                     90 ms      5760  -1 dBFS, zero DC
+needs_you                240 ms     15360  -1 dBFS, zero DC
+done                     180 ms     11520  -1 dBFS, zero DC
+sent                     120 ms      7680  -1 dBFS, zero DC
+listening_start           70 ms      4480  -1 dBFS, zero DC
+listening_stop            70 ms      4480  -1 dBFS, zero DC
+failed                   160 ms     10240  -1 dBFS, zero DC
+home_on                   10 ms       640  -1 dBFS, zero DC
+home_off                  10 ms       640  -1 dBFS, zero DC
+timer                   2000 ms    128000  loop; runtime 20 s fade-up
+alarm                   2000 ms    128000  loop; runtime 20 s fade-up
+game_roll                 60 ms      3840  -1 dBFS, zero DC
+game_bead                 80 ms      5120  -1 dBFS, zero DC
+game_pop                  45 ms      2880  -1 dBFS, zero DC
+game_switch               35 ms      2240  -1 dBFS, zero DC
+game_collect              90 ms      5760  -1 dBFS, zero DC
+
+Spoken reply: streamed by hub; not a generated system cue.
+Total signed sound-section payload: 344008 bytes.

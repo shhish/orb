@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Settings, Battery</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: 0; top: 36px; width: 466px; text-align: center; font-size: 19px; font-weight: 600; color: #30D158">Battery</div>
+
+  <div style="position: absolute; left: 0; top: 70px; width: 466px; display: flex; justify-content: center; align-items: baseline; gap: 10px; font-variant-numeric: tabular-nums">
+    <span style="font-size: 64px; line-height: 70px; font-weight: 600; letter-spacing: -1px">80%</span>
+  </div>
+  <div style="position: absolute; left: 0; top: 142px; width: 466px; text-align: center; font-size: 18px; color: rgba(235,235,245,0.6); font-variant-numeric: tabular-nums">About 9 h left at your usual use</div>
+
+  <div style="position: absolute; left: 63px; top: 186px; width: 340px; height: 66px; border-radius: 33px; background: #1C1C1E; display: flex; align-items: center; padding: 0 22px; box-sizing: border-box">
+    <span style="font-size: 20px; font-weight: 600; flex: 1">Health</span><span style="font-size: 18px; color: #30D158; font-variant-numeric: tabular-nums">Good · 96%</span>
+  </div>
+  <div style="position: absolute; left: 63px; top: 262px; width: 340px; height: 66px; border-radius: 33px; background: #1C1C1E; display: flex; align-items: center; gap: 12px; padding: 0 16px 0 22px; box-sizing: border-box">
+    <span style="display: flex; flex-direction: column; flex: 1"><span style="font-size: 20px; font-weight: 600">Desk charging</span><span style="font-size: 15px; color: rgba(235,235,245,0.6)">Stops at 80% on the stand</span></span>
+    <button type="button" role="switch" aria-checked="true" aria-label="Desk charging limit" style="width: 64px; height: 38px; border-radius: 19px; border: 0; padding: 0; background: #30D158; display: flex; align-items: center; justify-content: flex-end; flex-shrink: 0"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; margin-right: 3px"></span></button>
+  </div>
+  <div style="position: absolute; left: 63px; top: 338px; width: 340px; height: 66px; border-radius: 33px; background: #1C1C1E; display: flex; align-items: center; padding: 0 22px; box-sizing: border-box">
+    <span style="font-size: 20px; font-weight: 600; flex: 1">Temperature</span><span style="font-size: 18px; color: rgba(235,235,245,0.6)">Normal</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Face gallery</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: absolute; left: -246px; top: 74px; width: 466px; height: 466px; transform: scale(0.56); transform-origin: top left; opacity: 0.45">
+    <dc-import name="FaceActivity" hint-size="466px,466px"></dc-import>
+  </div>
+  <div style="position: absolute; left: 380px; top: 74px; width: 466px; height: 466px; transform: scale(0.56); transform-origin: top left; opacity: 0.45">
+    <dc-import name="FaceMeridian" hint-size="466px,466px"></dc-import>
+  </div>
+  <div style="position: absolute; left: 102px; top: 66px; width: 466px; height: 466px; transform: scale(0.56); transform-origin: top left; border-radius: 233px; box-shadow: 0 0 0 5px #FFFFFF">
+    <dc-import name="FaceOrb" hint-size="466px,466px"></dc-import>
+  </div>
+  <svg width="466" height="466" style="position: absolute; left: 0; top: 0" role="img" aria-label="Orb face, 1 of 3">
+    <defs><path id="fgTop" d="M 33,233 A 200,200 0 0 1 433,233"></path></defs>
+    <text font-family="Inter" font-size="23" font-weight="600" fill="#FFFFFF" letter-spacing="1.2" text-anchor="middle"><textPath href="#fgTop" startOffset="50%">ORB</textPath></text>
+    <circle cx="219" cy="350" r="4" fill="#FFFFFF"></circle>
+    <circle cx="233" cy="350" r="4" fill="rgba(235,235,245,0.35)"></circle>
+    <circle cx="247" cy="350" r="4" fill="rgba(235,235,245,0.35)"></circle>
+  </svg>
+  <a href="FaceColor.dc.html" style="position: absolute; left: 173px; top: 374px; width: 120px; height: 52px; border-radius: 26px; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18); color: #FFFFFF; font-size: 25px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Edit</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

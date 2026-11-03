@@ -1,0 +1,4 @@
+{"t":"req","id":101,"m":"home.set","p":{"id":"acc6ec49fcbbf","values":{"on":true,"brightness":67,"sat":20}}}
+{"t":"req","id":102,"m":"home.toggle","p":{"id":"acc6ec49fcbbf"}}
+{"t":"req","id":103,"m":"home.scene","p":{"id":"s297178749bb1"}}
+{"t":"req","id":104,"m":"home.toggle","p":{"id":"acc6ec49fcbbf"}}

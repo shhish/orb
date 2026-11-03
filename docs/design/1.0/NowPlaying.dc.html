@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Now Playing</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 466px; height: 466px; border-radius: 233px; overflow: hidden; background: #000000; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <svg style="position: absolute; left: 0; top: 0" width="466" height="466" viewBox="0 0 466 466" role="img" aria-label="Track progress 2 minutes 1 second of 4 minutes 3 seconds">
+    <path d="M 92.6 400.0 A 218 218 0 0 0 373.4 400.0" fill="none" stroke="#1C1C1E" stroke-width="6" stroke-linecap="round"></path>
+    <path d="M 92.6 400.0 A 218 218 0 0 0 233.0 451.0" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path>
+  </svg>
+
+  <div style="position: absolute; left: 0; top: 58px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: rgba(235,235,245,0.6)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF375F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-2v12"></path><circle cx="6.5" cy="18" r="2.5"></circle><circle cx="17.5" cy="16" r="2.5"></circle></svg>
+    <span>Playing on Mac mini</span>
+  </div>
+  <div style="position: absolute; left: 63px; top: 100px; width: 340px; text-align: center; font-size: 30px; line-height: 36px; font-weight: 600; letter-spacing: -0.4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Midnight City</div>
+  <div style="position: absolute; left: 63px; top: 140px; width: 340px; text-align: center; font-size: 21px; color: rgba(235,235,245,0.6)">M83</div>
+
+  <button type="button" aria-label="Previous" style="position: absolute; left: 105px; top: 206px; width: 64px; height: 64px; border-radius: 32px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 6v12l-8.5-6zM10.5 6v12L2 12z"></path></svg></button>
+  <button type="button" aria-label="Pause" style="position: absolute; left: 189px; top: 194px; width: 88px; height: 88px; border-radius: 44px; border: 0; background: rgba(255,55,95,0.28); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), inset 0 0 0 1px rgba(255,55,95,0.4); color: #FF8BA3; display: flex; align-items: center; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"></rect><rect x="14" y="5" width="4" height="14" rx="1.2"></rect></svg></button>
+  <button type="button" aria-label="Next" style="position: absolute; left: 297px; top: 206px; width: 64px; height: 64px; border-radius: 32px; border: 0; background: rgba(120,120,128,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 0 1px rgba(255,255,255,0.08); color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 6v12l8.5-6zM13.5 6v12L22 12z"></path></svg></button>
+
+  <div style="position: absolute; left: 0; top: 306px; width: 466px; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 17px; font-weight: 500; color: rgba(235,235,245,0.5)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 19V5L7.5 9.5z"></path><path d="M16 9a4 4 0 0 1 0 6"></path></svg>
+    <span>Turn the Orb for Mac volume</span>
+  </div>
+  <div style="position: absolute; left: 0; top: 362px; width: 466px; display: flex; justify-content: space-between; padding: 0 128px; box-sizing: border-box; font-size: 15px; color: rgba(235,235,245,0.45); font-variant-numeric: tabular-nums"><span>2:01</span><span>−2:02</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":466,"height":466}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+"""Explicit dependencies of a device link, assembled once at its boundary.
+
+The composition root may adapt a Hub (and legacy tests' small fakes), but a Link
+never retains it. Providers expose only the operations the transport consumes.
+"""
+
+from dataclasses import dataclass
+from typing import Protocol
+
+
+class SessionPort(Protocol):
+    def get_prefs(self, device_id): ...
+    async def set_prefs(self, device_id, patch): ...
+    async def subscribe(self, link): ...
+    def subscribe_usage(self, link): ...
+    def unsubscribe(self, link): ...
+    def list_sessions(self, device_id, params, *, request_id): ...
+    async def answer(self, device_id, params): ...
+    async def message(self, device_id, params): ...
+    def check_target(self, target, device_id): ...
+    def check_source(self, device_id, source): ...
+    def delivery_allowed(self, link, method, params): ...
+    def replay_cards(self, link): ...
+    def discard_voice_result(self, link, stream): ...
+    async def emit(self, link, method, params): ...
+    def speech_baseline(self, device_id, target): ...
+    def session_snapshot(self, session_id): ...
+
+
+class VoicePort(Protocol):
+    available: bool
+
+    async def begin(self, link, params, emit): ...
+    async def end(self, link, params): ...
+    async def cancel(self, link, params): ...
+    async def disconnect(self, link): ...
+    async def frame(self, link, frame): ...
+    def confirmed(self, link, stream, target, text): ...
+    def consume(self, link, stream): ...
+    def result_pending(self, link, stream): ...
+
+
+class RequestPort(Protocol):
+    async def request(self, device_id, method, params): ...
+    async def subscribe(self, link): ...
+    def unsubscribe(self, link): ...
+
+
+@dataclass(frozen=True)
+class LinkSettings:
+    request_timeout: float = 10.0
+    idle_timeout: float = 45.0
+    handshake_timeout: float = 10.0
+    hub_name: str = ""
+    tz: str = "UTC"
+
+
+@dataclass(frozen=True)
+class LinkServices:
+    cfg: LinkSettings
+    sessions: SessionPort | None = None
+    voice: VoicePort | None = None
+    home: RequestPort | None = None
+    nowplaying: RequestPort | None = None
+    weather: object = None
+    speech: object = None
+    store: object = None
+    pairing: object = None
+    cert: object = None
+    devlogs: object = None
+    devtools: object = None
+    link_closed: object = None
+    link_online: object = None
+    pairing_started: object = None
+    ota_outcome: object = None
+    offer_for: object = None
+    assets_offer_for: object = None
+
+    @classmethod
+    def from_hub(cls, hub):
+        """Compatibility construction seam; retains dependencies, never the Hub."""
+        config = getattr(hub, "cfg", None)
+        settings = LinkSettings(
+            **{name: getattr(config, name, field.default) for name, field in LinkSettings.__dataclass_fields__.items()}
+        )
+        return cls(
+            cfg=settings,
+            **{name: getattr(hub, name, None) for name in cls.__dataclass_fields__ if name != "cfg"},
+        )

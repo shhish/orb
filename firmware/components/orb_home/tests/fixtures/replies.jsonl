@@ -1,0 +1,4 @@
+{"t":"res","id":101,"ok":true,"r":{"id":"acc6ec49fcbbf","state":{"on":true,"brightness":70,"hue":0,"sat":20,"ct":250}}}
+{"t":"res","id":102,"ok":true,"r":{"id":"acc6ec49fcbbf","state":{"on":false,"brightness":70,"hue":0,"sat":20,"ct":250}}}
+{"t":"res","id":103,"ok":true,"r":{"id":"s297178749bb1","accepted":true}}
+{"t":"res","id":104,"ok":false,"e":{"code":"busy","msg":"Home relay could not complete the request"}}

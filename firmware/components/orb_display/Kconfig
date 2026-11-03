@@ -1,0 +1,252 @@
+menu "Orb display experiments"
+    config ORB_DISPLAY_LIVE_DOUBLE_BUFFER
+        bool "Overlap live bands when no visible scene reads its backdrop"
+        default y
+        depends on ORB_DISPLAY_INTERNAL_DOUBLE_BUFFER
+        help
+            Inspect the active screen and system layers before each refresh.
+            If no visible object has a backdrop blur, the existing internal
+            arena may use two half-bands even for large damage. Any live blur
+            keeps the guarded full band. No extra DMA arena or PSRAM drawing.
+
+    config ORB_DISPLAY_SCROLL_TRACE
+        bool "Capture input, scroll, refresh and UI scheduling timestamps"
+        default n
+        depends on ORB_DEVTOOLS && SPIRAM
+        help
+            Lead-only attribution capture started by bench_scroll. Retain up to
+            2048 timestamped events in PSRAM, plus complete-frame interval
+            histograms and wait totals that continue after overflow. No console
+            output or per-frame allocation during capture. Packed CRC chunks are
+            emitted after capture. Disable for final throughput gates.
+
+    config ORB_RENDER_FUSED_GLASS
+        bool "Fuse reduced glass reconstruction, tint, coverage and rim"
+        default n
+        depends on SPIRAM
+        help
+            Experimental internal-SRAM glass kernel with an area-averaged
+            reduced backdrop and screen-anchored RGB565 dithering. Reuse the
+            shared antialiased SDF masks and IMU light. Unsupported formats,
+            incomplete backdrop support and failed admission use the reference
+            renderer. Keep the existing 84-row internal band and transfer path.
+            Measure both visual differences and whole-frame board performance.
+
+    config ORB_RENDER_ROWS_AT_SIZE
+        bool "Draw moving matte rows from native-size glyph atlases"
+        default y
+        depends on SPIRAM
+        help
+            Sixteen-size glyph coverage atlas (on by default since the 2026-10-27
+            board A/B: scroll 18.4 -> 21.5 fps, draw 40.5 -> 32.7 ms) for supported
+            curved-list rows. Blend glyphs directly into the internal output
+            band instead of transforming full row rasters. Keep native static
+            rows cached and unsupported content on the reference raster path.
+            Font, style and accessibility changes retire the admitted atlas.
+            Native-size quantization requires independent visual review.
+
+    config ORB_DISPLAY_TE_PACING
+        bool "TE deadline scheduling with measured motion admission"
+        default n
+        help
+            Coalesce refreshes before layout/raster work without blocking input
+            timers. Use the measured awake-panel TE grid and preserve per-band
+            scan avoidance. Skip expired slots; count actual final SPI deadline
+            hits and misses. Both scrolling and games may use every TE. Slow
+            content uses a measured integer divisor, reevaluated after eight
+            initial warm frames, then over 16-frame blocks. One isolated work
+            outlier stays a reported miss instead of lowering the whole rate.
+            No idle TE redraws, new DMA storage, or panel clock changes.
+
+    config ORB_DISPLAY_RETAINED_SETTLED_ONLY
+        bool "Suspend retained material preparation during backdrop motion"
+        default n
+        depends on ORB_DISPLAY_RETAINED_MATERIAL
+        help
+            Use the exact compatibility blur while scrolling/parallax changes
+            content. Re-admit retained maps after 120 ms of settled content.
+            Avoid rebuilding retained source/maps/bases on every moving frame.
+
+    config ORB_DISPLAY_GLASS_SOLID_FAST
+        bool "Skip blur kernels for exactly uniform RGB565 backdrops"
+        default y
+        help
+            Inspect the complete sampled control rectangle within its band,
+            excluding stride padding, using exact bulk comparisons. Uniform black or
+            solid input uses the identical tint/AA/screen-dither reconstruction
+            without filtering or allocating filter/map scratch. Nonuniform content
+            retains the reference live blur, even for a single changed pixel.
+
+    config ORB_DISPLAY_GLASS_SPARSE_MASKS
+        bool "Draw exact SDF masks using their nonzero row spans"
+        default n
+        help
+            Retain bounded per-row spans with shared glass masks and skip fully
+            transparent padding/interiors in A8 image draws. Keep exact original
+            coverage and blend functions. Independent board A/B experiment.
+
+    config ORB_DISPLAY_RENDER_ACCOUNTING
+        bool "Stage 0: account whole updates, preparation and presentation cadence"
+        default n
+        depends on SPIRAM
+        help
+            Bounded counters around refresh preparation and final SPI result
+            drain, 1 ms completion interval buckets and the last eight band
+            draw/queue/DMA timestamps. No hot-loop output or per-frame allocation.
+            Keep normal frame/DRAW/WAIT/HOLD/WIRE diagnostics unchanged.
+
+    config ORB_DISPLAY_RETAINED_MATERIAL
+        bool "Stage 1: retain exact settled glass maps and material bases"
+        default n
+        depends on SPIRAM
+        help
+            Retain exact untinted maps and RGB565 bases for managed Orb glass.
+            Dependency revisions include lower content transforms/opacity/clips,
+            z-order, source content, theme and accessibility. Geometry, tint,
+            destination dither and format key the final base separately. Light
+            changes restore the base without traversing unchanged source rows.
+            Unsupported drawing, allocation failure or incomplete dependencies
+            use the exact compatibility renderer. No band/transport changes.
+
+    config ORB_DISPLAY_GLASS_SINGLE_PASS
+        bool "Cull off-band glass tasks before dispatch"
+        default n
+        help
+            Avoid blur dispatch for controls outside a band's clip. The existing
+            whole-control band guard retains complete control samples. Does not
+            reuse pixels by object identity or read unwritten later bands.
+            Current 84-row guards already execute about three real blurs per
+            scroll frame; extra profiler calls mostly return without work.
+
+    config ORB_DISPLAY_GLASS_MOTION_QUALITY
+        bool "Use averaged quarter-resolution glass during scrolling"
+        default n
+        help
+            Experimental motion-only backdrop downsampling. Retains full-size
+            antialiased edges, bilinear reconstruction and screen Bayer dither;
+            restores the normal quality after scrolling settles. Requires visual
+            review on the panel; host timing does not establish device FPS.
+
+    config ORB_DISPLAY_RASTER_SCALE_CACHE
+        bool "Cache exact scaled opaque RGB565 row variants in PSRAM"
+        default n
+        depends on SPIRAM
+        help
+            Bounded LRU of exact integer-scale variants, built before DRAW.
+            Image tasks reuse scaled color and coverage as plain IMAGE blits;
+            source content, geometry and format changes invalidate the variants.
+            Opacity remains exact. No scale quantization or extra internal DMA
+            arena. Measure whole-frame time as well as DRAW and build counters.
+
+    config ORB_DISPLAY_RGB565_SCALE_FAST
+        bool "Specialize exact scale-only opaque RGB565 transforms"
+        default n
+        help
+            Hoist constant row coordinates/weights and increment integer X
+            coordinates in the opaque scale-only filter. Generic transforms
+            retain their existing checked AA edges and fallback. No retained
+            lookup storage, no additional DMA buffer, no coarse scale steps.
+            Independent of the variant cache; also accelerates cold variants.
+
+    config ORB_DISPLAY_RASTER_COVER_CHECK
+        bool "Require opaque native-scale cached roots for cover skipping"
+        default y
+        help
+            Correctness fix: a cached child cannot cover its parent's faded or
+            scaled composite. Prevents stale pixels when rows move near the
+            bezel. Disable only to reproduce the old partial-redraw defect.
+
+    config ORB_DISPLAY_RASTER_SCALE_CACHE_KIB
+        int "PSRAM budget for exact scaled row variants (KiB)"
+        default 512
+        range 64 1024
+        depends on ORB_DISPLAY_RASTER_SCALE_CACHE
+        help
+            Includes retained variant pixels and metadata. Source raster bytes
+            and temporary construction memory are reported separately. Current
+            frame variants are pinned; misses fall back safely when all fit
+            candidates cannot be admitted within this budget.
+
+    config ORB_DISPLAY_DRAW_PROFILE
+        bool "Collect bounded software draw-task benchmark timings"
+        default n
+        depends on ORB_DEVTOOLS && SPIRAM
+        help
+            Lead-only attribution build. Two timestamps and native atomic
+            counters per software draw task, grouped by type/widget class and
+            transformed image path. Benchmark emits phase deltas only after
+            returning to the original screen. Separate hotspot stages show
+            rows preparation/draw and glass preparation/downsample/filter/compose.
+            DRAW_EVENTS also includes synchronous custom painting and task drains.
+            Preparation can precede DRAW; GLASS_PREPARE includes its children.
+            About 1.4 KiB static counters and 26 KiB PSRAM snapshots; no profiler
+            serial flood while drawing.
+            Wall time includes preemption and concurrent workers overlap, so
+            summed task time can exceed display DRAW. Disable for final FPS.
+
+    config ORB_DISPLAY_TALL_BANDS
+        bool "Render in 104-row bands instead of 84"
+        default n
+        help
+            Spend another 18,640 internal DMA bytes per draw buffer to reduce
+            band boundaries. Keeps the glass guard and TE scheduling intact.
+            Measure with networking, reconnect and OTA before accepting: this
+            also makes the optional second buffer harder to admit.
+
+    config ORB_DISPLAY_INTERNAL_DOUBLE_BUFFER
+        bool "Split the render arena for small refreshes and cached navigation"
+        default y
+        depends on !ORB_DISPLAY_PSRAM_PIPELINE
+        help
+            Reserve two aligned half-bands in the original early draw arena
+            (48 extra bytes at 84 rows). After accepted hello, require 24 KiB
+            internal/DMA free and an 8 KiB largest DMA block. Use both halves
+            for complete small live invalidations or an explicitly certified
+            immutable full-screen navigation compositor with no live blur.
+            Other redraws use the full band so glass blur is never sliced.
+            Navigation bypasses the live glass band guard only while certified;
+            its snapshots already contain the settled controls. Fence DMA before
+            each switch and before returning from snapshots to live content.
+            Admission is a snapshot, not a guarantee of future audio/OTA fit.
+
+    config ORB_DISPLAY_INTERNAL_IMAGE_SCRATCH
+        bool "Prefer internal RAM for software image transform scratch"
+        default n
+        depends on SPIRAM
+        help
+            Route transient image transform tiles through the bounded draw-only
+            allocator. Leave general LVGL objects and raster caches unchanged.
+            All draw scratch shares a 16 KiB internal cap with reserve checks;
+            rejected allocations fall back to PSRAM. Measure before enabling.
+
+    config ORB_DISPLAY_INTERNAL_BLUR_SCRATCH
+        bool "Prefer internal RAM for software blur scratch"
+        default n
+        depends on SPIRAM
+        help
+            Route transient blur arrays/LUTs through the same bounded allocator.
+            Leave persistent backdrop-cache payload in PSRAM. Independent from
+            image scratch so the lead can isolate their effects.
+
+    config ORB_DISPLAY_INTERNAL_DRAW_MASKS
+        bool "Prefer internal RAM for software draw scanline masks"
+        default n
+        depends on SPIRAM
+        help
+            Route transient software primitive masks through the same bounded
+            draw-only allocator. Disabled kinds use explicit PSRAM even for
+            small masks; enable only after measuring the internal preference.
+
+    config ORB_DISPLAY_PSRAM_PIPELINE
+        bool "Copy display bands to two PSRAM DMA snapshots"
+        default n
+        depends on IDF_TARGET_ESP32S3 && SPIRAM
+        help
+            Keep LVGL's single internal DMA draw buffer, and copy each completed
+            band to one of two fixed PSRAM snapshots. This overlaps drawing with
+            panel transfer, at the cost of PSRAM bandwidth and about 154 KiB of
+            PSRAM. Direct PSRAM DMA underflow disables the pipeline until reboot
+            and requests a full redraw using the blocking internal buffer.
+            Experimental: compare frame latency and transfer errors on hardware
+            with Wi-Fi and the intended workload before enabling by default.
+endmenu

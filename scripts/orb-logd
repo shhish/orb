@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Run the development checkout's orb-logd CLI (no service is installed here).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHON="${ORB_PYTHON:-$ROOT/.venv/bin/python}"
+export PYTHONPATH="$ROOT/devtools${PYTHONPATH:+:$PYTHONPATH}"
+exec "$PYTHON" -m orb_devtools.logd "$@"

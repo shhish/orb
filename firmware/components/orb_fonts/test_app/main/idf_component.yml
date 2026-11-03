@@ -1,0 +1,5 @@
+dependencies:
+  lvgl/lvgl:
+    version: "*"
+    # Orb's LVGL fork, as the firmware gets it through orb_display
+    override_path: "../../../../third_party/lvgl__lvgl"

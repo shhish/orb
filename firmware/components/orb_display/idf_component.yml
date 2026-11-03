@@ -1,0 +1,5 @@
+dependencies:
+  lvgl/lvgl:
+    version: "*"
+    # Local fork: band-split hook for glass (see third_party/lvgl__lvgl/ORB_PATCHES.md)
+    override_path: "../../third_party/lvgl__lvgl"

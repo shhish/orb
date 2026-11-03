@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sound and senses</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;display=swap">
+<style>
+body{margin:0}
+th{font-weight:600;color:rgba(235,235,245,0.6);text-align:left;padding:8px 12px;font-size:13px;letter-spacing:0.6px;text-transform:uppercase}
+td{padding:9px 12px;font-size:15px;line-height:20px;border-top:1px solid #2C2C2E;vertical-align:top}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1140px; box-sizing: border-box; padding: 56px 64px; background: #0B0B0C; color: #FFFFFF; font-family: Inter, system-ui, sans-serif; display: grid; grid-template-columns: 760px 1fr; column-gap: 56px">
+
+  <section style="display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.5px">Sound</h1>
+    <p style="margin: 0 0 6px; font-size: 16px; line-height: 23px; color: rgba(235,235,245,0.65)">Sound stands in for haptics: there's no motor. Sounds are sampled, not synthesised beeps: short, warm, quiet and never musical, except alarms. Silent mutes everything but alarms and timers. Always On is silent. The ES8311 limiter (DRC) is always on, so the small speaker never clips.</p>
+    <table style="border-collapse: collapse; width: 100%">
+      <thead><tr><th style="width: 170px">Moment</th><th>Character</th><th style="width: 84px">Length</th><th style="width: 150px">In Silent</th></tr></thead>
+      <tbody>
+        <tr><td><b>Detent</b></td><td>a tiny dry tick on each rim, crown or twist step</td><td>8 ms</td><td>muted</td></tr>
+        <tr><td><b>Tap</b></td><td>a soft press on glass buttons only, not on every touch</td><td>12 ms</td><td>muted</td></tr>
+        <tr><td><b>Open / close</b></td><td>an airy rise or fall under the iris and sheets</td><td>90 ms</td><td>muted</td></tr>
+        <tr><td><b>Needs you</b></td><td>two warm notes, rising: an agent or card is waiting</td><td>240 ms</td><td>muted; the Face shows it</td></tr>
+        <tr><td><b>Done</b></td><td>one rounded chime: a build passed or a session finished</td><td>180 ms</td><td>muted</td></tr>
+        <tr><td><b>Sent</b></td><td>a quick whoosh when a voice request leaves</td><td>120 ms</td><td>muted</td></tr>
+        <tr><td><b>Listening</b></td><td>a brief open/close pair around talking</td><td>70 ms each</td><td>muted</td></tr>
+        <tr><td><b>Failed</b></td><td>a low, short double knock</td><td>160 ms</td><td>muted</td></tr>
+        <tr><td><b>Home toggle</b></td><td>the detent tick, a semitone higher for on</td><td>10 ms</td><td>muted</td></tr>
+        <tr><td><b>Timer / alarm</b></td><td>a gentle repeating tone, fading up over 20 s; Stop or double-tap</td><td>until stopped</td><td style="color: #FFD600">always plays</td></tr>
+        <tr><td><b>Spoken reply</b></td><td>Dot's or an agent's answer, read by the Mac's voice</td><td>speech</td><td>shown as text</td></tr>
+        <tr><td><b>Game</b></td><td>each game's own small set: marble roll, bead hiss, pop</td><td>short</td><td>muted</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.5px">Senses</h1>
+    <p style="margin: 0 0 6px; font-size: 16px; line-height: 23px; color: rgba(235,235,245,0.65)">Every input maps to one meaning everywhere. Motion and sound never approve, send or unlock anything.</p>
+    <table style="border-collapse: collapse; width: 100%">
+      <thead><tr><th style="width: 150px">Input</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><b>Twist</b><br><span style="color: rgba(235,235,245,0.55); font-size: 13px">gyroscope, lying flat</span></td><td>Turn the Orb on the desk like a dial: scrolls or sets the value on screen, with detent ticks. Ignored in the hand.</td></tr>
+        <tr><td><b>Double-tap</b><br><span style="color: rgba(235,235,245,0.55); font-size: 13px">tap engine</span></td><td>The screen's safe primary action: stop the alarm, dismiss the timer, pause or stop speech, dismiss a banner. Never Allow or Send.</td></tr>
+        <tr><td><b>Pick up</b></td><td>Wakes into the glance.</td></tr>
+        <tr><td><b>Face down</b></td><td>Silences and sleeps; stops a ringing alarm.</td></tr>
+        <tr><td><b>Hold BOOT</b></td><td>Talk to the focused agent or Dot.</td></tr>
+        <tr><td><b>Voice</b><br><span style="color: rgba(235,235,245,0.55); font-size: 13px">two microphones</span></td><td>Both mics on, with noise suppression for typing. A wake word ("Hey Orb") stays off by default: an opt-in later.</td></tr>
+        <tr><td><b>Speaker</b></td><td>Spoken replies on by default at desk volume. Talking over a reply stops it (echo cancellation).</td></tr>
+      </tbody>
+    </table>
+    <h2 style="margin: 18px 0 0; font-size: 15px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(235,235,245,0.6)">Hardware we now use</h2>
+    <ul style="margin: 0; padding-left: 18px; font-size: 15px; line-height: 23px; color: rgba(235,235,245,0.8)">
+      <li>The gyroscope (off today) for twist and steadier tilt in games.</li>
+      <li>The second microphone (unread today), and the codec's limiter, volume and EQ.</li>
+      <li>The display's 8-colour idle mode and partial refresh for Always On, if the board measurements confirm the power savings.</li>
+      <li>The battery's current and temperature for health and charge limits.</li>
+      <li>Later: Bluetooth as a Mac media knob when Wi-Fi is down, and the microSD slot.</li>
+    </ul>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1140}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
