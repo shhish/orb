@@ -18,6 +18,14 @@ Clock faces, Apple Home, weather, timers, tilt-to-play games, and a tap-to-appro
 
 ---
 
+<p align="center">
+  <img src="docs/readme/orb-home.gif" alt="Opening Home, turning on the Living Room light, dimming the Study lamp to 75% and setting the thermostat" width="24%">
+  <img src="docs/readme/orb-agents.gif" alt="A Claude Code request to allow a firmware build, then the answer being sent and delivered" width="24%">
+  <img src="docs/readme/orb-beads.gif" alt="Beads: 256 beads pour from side to side as the device tilts, then settle into the time, 10:09" width="24%">
+  <img src="docs/readme/orb-games.gif" alt="Marble rolling through a maze, then Snake steering around the round arena" width="24%">
+</p>
+<p align="center"><sub>Home · agent approvals · Beads · Marble and Snake. Real firmware UI with demo data, captured in the simulator.</sub></p>
+
 ## A quick tour
 
 <p align="center">
@@ -63,16 +71,12 @@ Clock faces, Apple Home, weather, timers, tilt-to-play games, and a tap-to-appro
 
 ## How it connects
 
-```mermaid
-flowchart LR
-  ORB(["Orb"]) <-- "Wi-Fi · pinned TLS" --> HUB{{"Orb hub<br/>on your Mac"}}
-  HUB --> HR["HomeRelay"] --> HOME[("Apple Home")]
-  CLAUDE["Claude Code"] -- "sessions · approvals" --> HUB
-  CODEX["Codex"] -- "sessions · approvals" --> HUB
-  DOT["ChatGPT Dot"] -- MCP --> HUB
-  HUB --> WX["Weather"]
-  HUB --> STT["Whisper speech"]
-```
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/readme/how-it-connects-dark.svg">
+    <img src="docs/readme/how-it-connects-light.svg" alt="Orb connects over Wi-Fi with pinned TLS to the Orb hub on an always-on Mac, which reaches Apple Home through HomeRelay, Claude Code and Codex sessions, ChatGPT Dot and the weather, and transcribes speech with Whisper." width="100%">
+  </picture>
+</p>
 
 The **hub** ([`hub/`](hub/README.md)) is a small Python service on an always-on Mac. It pairs Orbs, signs and serves firmware updates, transcribes speech, and connects agent sessions and ChatGPT's Dot. Apple Home goes through [HomeRelay](https://github.com/shhish/HomeRelay), which keeps its credentials on the Mac. [Switchboard](https://github.com/shhish/switchboard) can send cards to Orb too.
 
